@@ -1,0 +1,29 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+hook_add = '''
+  let g:rehash256 = 1
+  colorscheme molokai
+  highlight Normal ctermbg=none
+'''
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = 'source $XDG_CONFIG_HOME/nvim/vim/rc/plugins/lightline.rc.vim'
+
+[[plugins]]
+repo = 'scrooloose/nerdcommenter'
+hook_add = 'source $XDG_CONFIG_HOME/nvim/vim/rc/plugins/nerdcommenter.rc.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+

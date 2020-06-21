@@ -1,0 +1,49 @@
+snippet for
+options     head
+abbr        for () {}
+  for (${1:i} = ${2:0}; $1 < ${3}; $1++) {
+    ${0:#:TARGET}
+  }
+
+snippet for_le
+options     head
+abbr        for ( <= ) {}
+  for (${1:i} = ${2:0}; $1 <= ${3}; $1++) {
+    ${0:#:TARGET}
+  }
+
+snippet nif
+options     head
+abbr        if ()
+    if (${1:#condition}) {
+        ${2:TARGET}
+    }
+
+snippet ifelse
+options     head
+abbr        if () {} else {}
+    if (${1:#condition}) {
+        ${2:TARGET}
+    }
+    else {
+        ${3}
+    }
+
+snippet function
+options     head
+alias       func
+abbr        func() {}
+	${1:void} ${2:#:func_name}(${3:#:args})
+	{
+		${0:TARGET}
+	}
+
+# hard-tab is necessary; C indent doesn't support this.
+snippet main
+options     head
+	int main(int argc, char const **argv)
+	{
+		${0:TARGET}
+    
+		return 0;
+	}

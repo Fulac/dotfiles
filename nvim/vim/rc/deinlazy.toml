@@ -1,0 +1,92 @@
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_path = '.*'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+depends = 'neomru.vim'
+hook_source = 'source $XDG_CONFIG_HOME/nvim/vim/rc/plugins/unite.rc.vim'
+hook_add = '''
+  " コマンド[unite]を <Space>f で代用する
+  nnoremap [unite] <Nop>
+  nmap <Space>f [unite]
+
+  " 現在開いているファイルのディレクトリ下のファイル一覧
+  " 開いていない場合はカレントディレクトリのファイル一覧
+  nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+
+  " バッファ一覧
+  nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+
+  " レジスタ一覧
+  nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
+
+  " 最近使用したファイル一覧
+  nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
+
+  " ブックマーク一覧
+  nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
+
+  " ブックマークに追加
+  nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+depends = ['neosnippet-snippets', 'context_filetype.vim']
+on_event = 'InsertCharPre'
+on_ft = 'snippet'
+hook_source = 'source $XDG_CONFIG_HOME/nvim/vim/rc/plugins/neosnippet.rc.vim'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if = "has('nvim')"
+on_event = 'InsertCharPre'
+hook_add = 'let g:deoplete#enable_at_startup = 1'
+hook_source = 'source $XDG_CONFIG_HOME/nvim/vim/rc/plugins/deoplete.rc.vim'
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+on_ft = ['c', 'cpp']
+depends = ['deoplete.nvim']
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+on_map = {n = '<Plug>'}
+hook_add = 'nmap <silent> <C-l> <Plug>(quickrun)'
+hook_source = 'source $XDG_CONFIG_HOME/nvim/vim/rc/plugins/vim-quickrun.rc.vim'
+
+[[plugins]]
+repo = 'kana/vim-smartchr'
+depends = 'context_filetype.vim'
+on_event = 'InsertCharPre'
+hook_source = 'source $XDG_CONFIG_HOME/nvim/vim/rc/plugins/vim-smartchr.rc.vim'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+  " vim起動時にNERDTreeを自動で起動する
+  autocmd VimEnter * NERDTree
+  " Vim&NERDTree起動時にカーソルをファイル側に表示する
+  autocmd VimEnter * call timer_start(0, { -> feedkeys("\<C-w>w") })
+
+  " 隠しファイルを表示する
+  let NERDTreeShowHidden = 1
+
+  " NERDTreeを起動するコマンド
+  noremap <C-n> :NERDTreeToggle<CR><C-w>w
+'''
+hook_source = 'source $XDG_CONFIG_HOME/nvim/vim/rc/plugins/nerdtree.rc.vim'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html']
+hook_add = '''
+  " htmlタグ展開
+  let g:user_emmet_leader_key = ','
+'''
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+on_i = 1
+
