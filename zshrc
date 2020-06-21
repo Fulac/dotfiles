@@ -6,14 +6,14 @@ if [ -f "${HOME}/.local.rc.zsh" ]; then
 fi
 
 case ${OSTYPE} in
-  cygwin)
-    source "${HOME}/.zsh/cygwin.rc.zsh"
-    ;;
   linux*)
     source "${HOME}/.zsh/linux.rc.zsh"
     ;;
   darwin*)
     source "${HOME}/.zsh/osx.rc.zsh"
+    ;;
+  cygwin)
+    source "${HOME}/.zsh/cygwin.rc.zsh"
     ;;
 esac
 
