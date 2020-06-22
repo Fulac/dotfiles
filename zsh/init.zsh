@@ -51,3 +51,4 @@ source "${HOME}/dotfiles/zsh/rc/zplug.rc.zsh"
 function cd() {
   builtin cd $@ && ls;
 }
+
