@@ -139,3 +139,4 @@ unsetopt caseglob
 # --------------------------------------------
 # tun_sprompt="%{${fg[yellow]}%}%r? べ, 別にあんたのために修正したんじゃないんだからね! [y,n,a,e]:%{${reset_color}%}"
 # SPROMPT=$tun_sprompt
+

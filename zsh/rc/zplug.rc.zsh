@@ -33,3 +33,4 @@ zplug load
 # --------------------------------------------
 # change style
 ZSH_HIGHLIGHT_STYLES[globbing]='fg=magenta'
+

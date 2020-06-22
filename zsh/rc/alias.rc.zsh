@@ -13,3 +13,4 @@ alias -g @f='| find'
 alias -g @l='| less'
 alias histf="history-all | less"
 alias less="less -q"
+

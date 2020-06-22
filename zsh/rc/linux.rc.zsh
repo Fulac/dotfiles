@@ -34,3 +34,4 @@ alias egrep="egrep --color"
 alias javac="javac -J-Dfile.encoding=UTF-8"
 alias java="java -Dfile.encoding=UTF-8"
 #alias brew="env PATH=${PATH/$HOME\/.pyenv\/shims:/} brew"
+

@@ -106,3 +106,4 @@ function history-all { history -E 1 }
 #autoload -U tetris
 #zle -N tetris
 #bindkey '^T' tetris
+
