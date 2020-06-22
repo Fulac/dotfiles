@@ -1,8 +1,7 @@
 # ------------------------------------------------
 #  Prompt設定
 # ------------------------------------------------
-function global:prompt {
-  # プロンプトの設定
+function global:prompt{
   $host.UI.Write( "Cyan", $host.UI.RawUI.BackgroundColor, "$env:USERNAME " );
   $host.UI.WriteLine( "Green", $host.UI.RawUI.BackgroundColor, "[" + (Get-Location).Path + "]" );
   "> " 
