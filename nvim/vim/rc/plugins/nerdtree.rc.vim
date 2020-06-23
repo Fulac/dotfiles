@@ -1,6 +1,12 @@
 "---------------------------------------------
 " nerdtree.vim
 "---------------------------------------------
+" 隠しファイルを表示する
+let NERDTreeShowHidden = 1
+
+" NERDTreeを起動するコマンド
+noremap <C-n> :NERDTreeToggle<CR><C-w>w
+
 " NERDTree以外にVimのBufferがない場合、NERDTreeを自動終了する
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 

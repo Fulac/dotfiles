@@ -17,14 +17,15 @@ if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
   " 管理するプラグインを記述したファイル
-  let s:toml = $XDG_CONFIG_HOME . '/nvim/vim/rc/dein.toml'
-  let s:lazy_toml = $XDG_CONFIG_HOME . '/nvim/vim/rc/deinlazy.toml'
+  let s:toml = $XDG_CONFIG_HOME . '/nvim/vim/dein.toml'
+  let s:lazy_toml = $XDG_CONFIG_HOME . '/nvim/vim/deinlazy.toml'
   call dein#load_toml(s:toml, {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
   call dein#end()
   call dein#save_state()
 endif
+
 " プラグインの追加・削除やtomlファイルの設定を変更した後は
 " 適宜 'call dein#update()' や 'call dein#clear_state()' を呼ぶ
 
