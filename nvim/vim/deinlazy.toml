@@ -48,3 +48,24 @@ hook_add = '''
   let g:user_emmet_leader_key = ','
 '''
 
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+
+
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+hook_source = 'source $XDG_CONFIG_HOME/nvim/vim/rc/plugins/asyncomplete.rc.vim'
+
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+
