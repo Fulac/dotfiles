@@ -8,7 +8,7 @@ endif
 
 " source 読み込み
 function! s:source_rc(path)
-  execute 'source' fnameescape($XDG_CONFIG_HOME . '/nvim/vim/rc/' . a:path)
+  execute 'source' fnameescape($XDG_CONFIG_HOME . '/nvim/user_autoload/init/' . a:path)
 endfunction
 
 
