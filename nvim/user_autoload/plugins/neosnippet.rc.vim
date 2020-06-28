@@ -16,5 +16,5 @@ if has('conceal')
 endif
 
 " let g:snippets_dir = '~/.vim/snippets,
-let g:neosnippet#snippets_directory = '$XDG_CONFIG_HOME/nvim/snippets'
+let g:neosnippet#snippets_directory = '$XDG_CONFIG_HOME/nvim/user_autoload/snippets'
 
