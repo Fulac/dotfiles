@@ -12,7 +12,7 @@ smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : 
 
 " For snippet_complete marker.
 if has('conceal')
-  set conceallevel=2 concealcursor=i
+  set conceallevel=2 concealcursor=niv
 endif
 
 " let g:snippets_dir = '~/.vim/snippets,

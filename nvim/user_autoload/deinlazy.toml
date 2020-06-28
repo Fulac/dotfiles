@@ -3,6 +3,10 @@ repo        = 'Shougo/neosnippet.vim'
 depends     = ['neosnippet-snippets', 'context_filetype.vim']
 on_event    = 'InsertCharPre'
 on_ft       = 'snippet'
+hook_add    = '''
+  " Not open preview window
+  set completeopt-=preview
+'''
 hook_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/neosnippet.rc.vim'
 
 
