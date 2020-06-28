@@ -29,17 +29,7 @@ endif
 " プラグインの追加・削除やtomlファイルの設定を変更した後は
 " 適宜 'call dein#update()' や 'call dein#clear_state()' を呼ぶ
 
-" vimprocだけは最初にインストールする
-" if has('vim_starting') && dein#check_install(['vimproc'])
-"   call dein#install(['vimproc'])
-" endif
-" dein#check_install(['vimproc'])の挙動がおかしいので暫定的にこっちで解決
-let s:vimproc_dir = s:dein_dir . '/repos/github.com/Shougo/vimproc.vim'
-if has('vim_starting') && !isdirectory(s:vimproc_dir)
-  call dein#install(['vimproc'])
-endif
-
-" その他インストールしていないものはこちらに入れる
+" 未インストールのプラグインをインストールする
 if has('vim_starting') && dein#check_install()
   call dein#install()
 endif

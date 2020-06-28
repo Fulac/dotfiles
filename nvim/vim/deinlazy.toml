@@ -51,10 +51,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
-
-
-[[plugins]]
-repo = 'prabirshrestha/async.vim'
+depends = 'async.vim'
 
 
 [[plugins]]

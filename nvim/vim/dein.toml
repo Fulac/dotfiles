@@ -3,8 +3,7 @@ repo = 'Shougo/dein.vim'
 
 
 [[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
+repo = 'prabirshrestha/async.vim'
 
 
 [[plugins]]
