@@ -18,7 +18,7 @@ hook_add = '''
 
 
 [[plugins]]
-repo = 'scrooloose/nerdcommenter'
+repo     = 'scrooloose/nerdcommenter'
 hook_add = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/nerdcommenter.rc.vim'
 
 
@@ -26,21 +26,21 @@ hook_add = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/nerdcommenter.rc.
 repo = 'Shougo/context_filetype.vim'
 
 
-# [[plugins]]
-# repo = 'prabirshrestha/async.vim'
-# 
-# 
-# [[plugins]]
-# repo = 'prabirshrestha/vim-lsp'
-# hook_add = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/vim-lsp.rc.vim'
-# 
-# 
-# [[plugins]]
-# repo = 'prabirshrestha/asyncomplete.vim'
-# hook_add = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/asyncomplete.rc.vim'
-# 
-# 
-# [[plugins]]
-# repo = 'prabirshrestha/asyncomplete-lsp.vim'
-# depends = ['asyncomplete.vim', 'vim-lsp']
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+
+
+[[plugins]]
+repo     = 'prabirshrestha/vim-lsp'
+depends  = ['async.vim']
+hook_add = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/vim-lsp.rc.vim'
+
+
+[[plugins]]
+repo     = 'prabirshrestha/asyncomplete.vim'
+hook_add = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/asyncomplete.rc.vim'
+ 
+ 
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
