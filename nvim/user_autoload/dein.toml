@@ -1,3 +1,4 @@
+# Requirement
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -25,24 +26,21 @@ hook_add = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/nerdcommenter.rc.
 repo = 'Shougo/context_filetype.vim'
 
 
-[[plugins]]
-repo = 'cohama/lexima.vim'
-on_i = 1
-
-
-[[plugins]]
-repo = 'prabirshrestha/async.vim'
-
-
-[[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete.vim'
-hook_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/asyncomplete.rc.vim'
-
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-lsp.vim'
+# [[plugins]]
+# repo = 'prabirshrestha/async.vim'
+# 
+# 
+# [[plugins]]
+# repo = 'prabirshrestha/vim-lsp'
+# hook_add = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/vim-lsp.rc.vim'
+# 
+# 
+# [[plugins]]
+# repo = 'prabirshrestha/asyncomplete.vim'
+# hook_add = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/asyncomplete.rc.vim'
+# 
+# 
+# [[plugins]]
+# repo = 'prabirshrestha/asyncomplete-lsp.vim'
+# depends = ['asyncomplete.vim', 'vim-lsp']
 

@@ -1,4 +1,1 @@
-.bundle
-mysession.vim
-Gemfile.lock
-test/vim-themis
+/doc/tags

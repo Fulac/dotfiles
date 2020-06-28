@@ -23,8 +23,8 @@ nnoremap fl <C-w>l
 nnoremap fw <C-w>w
 
 " タブ移動(次、前)
-nnoremap sl gt
-nnoremap sh gT
+nnoremap tl gt
+nnoremap th gT
 
 " <Leader> を , に割り当てる
 let mapleader = ","

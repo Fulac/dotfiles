@@ -14,16 +14,16 @@ repo = 'Shougo/neomru.vim'
 on_path = '.*'
 
 
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-depends = ['neosnippet-snippets', 'context_filetype.vim']
-on_event = 'InsertCharPre'
-on_ft = 'snippet'
-hook_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/neosnippet.rc.vim'
+# [[plugins]]
+# repo = 'Shougo/neosnippet.vim'
+# depends = ['neosnippet-snippets', 'context_filetype.vim']
+# on_event = 'InsertCharPre'
+# on_ft = 'snippet'
+# hook_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/neosnippet.rc.vim'
 
 
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+# [[plugins]]
+# repo = 'Shougo/neosnippet-snippets'
 
 
 [[plugins]]
@@ -44,7 +44,38 @@ hook_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/vim-smartchr.r
 repo = 'mattn/emmet-vim'
 on_ft = ['html']
 hook_add = '''
-  " htmlタグ展開
+  " expand html tag
   let g:user_emmet_leader_key = ','
 '''
+
+
+# [[plugins]]
+# repo = 'prabirshrestha/asyncomplete-neosnippet.vim'
+# depends = ['neosnippet.vim']
+# hook_source = '''
+#   call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
+#     \ 'name': 'neosnippet',
+#     \ 'whitelist': ['*'],
+#     \ 'priority' : 9
+#     \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
+#     \ }))
+# '''
+ 
+# [[plugins]]
+# repo = 'yami-beta/asyncomplete-omni.vim'
+# hook_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/asyncomplete-omni.rc.vim'
+
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if   = "has('nvim')"
+on_event    = 'InsertCharPre'
+hook_add    = 'let g:deoplete#enable_at_startup = 1'
+hook_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/deoplete.rc.vim'
+
+
+# deopleteの後に入れないと'{<CR>}'の補完が上手く働かない
+[[plugins]]
+repo = 'cohama/lexima.vim'
+on_i = 1
 
