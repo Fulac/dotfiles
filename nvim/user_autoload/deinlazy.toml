@@ -1,5 +1,45 @@
 [[plugins]]
-repo = 'scrooloose/nerdtree'
+repo        = 'Shougo/neosnippet.vim'
+depends     = ['neosnippet-snippets', 'context_filetype.vim']
+on_event    = 'InsertCharPre'
+on_ft       = 'snippet'
+hook_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/neosnippet.rc.vim'
+
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+
+[[plugins]]
+repo        = 'Shougo/deoplete.nvim'
+if          = "has('nvim')"
+on_event    = 'InsertCharPre'
+hook_add    = 'let g:deoplete#enable_at_startup = 1'
+hook_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/deoplete.rc.vim'
+
+
+[[plugins]]
+repo    = 'Shougo/neoinclude.vim'
+on_ft   = ['c', 'cpp']
+depends = ['deoplete.nvim']
+
+
+[[plugins]]
+repo        = 'thinca/vim-quickrun'
+on_map      = {n = '<Plug>'}
+hook_add    = 'nmap <silent> <C-l> <Plug>(quickrun)'
+hook_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/vim-quickrun.rc.vim'
+
+
+[[plugins]]
+repo        = 'kana/vim-smartchr'
+depends     = 'context_filetype.vim'
+on_event    = 'InsertCharPre'
+hook_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/vim-smartchr.rc.vim'
+
+
+[[plugins]]
+repo     = 'scrooloose/nerdtree'
 hook_add = '''
   " vim起動時にNERDTreeを自動で起動する
   autocmd VimEnter * NERDTree
@@ -10,43 +50,17 @@ hook_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/nerdtree.rc.vi
 
 
 [[plugins]]
-repo = 'Shougo/neomru.vim'
-on_path = '.*'
-
-
-# [[plugins]]
-# repo = 'Shougo/neosnippet.vim'
-# depends = ['neosnippet-snippets', 'context_filetype.vim']
-# on_event = 'InsertCharPre'
-# on_ft = 'snippet'
-# hook_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/neosnippet.rc.vim'
-
-
-# [[plugins]]
-# repo = 'Shougo/neosnippet-snippets'
-
-
-[[plugins]]
-repo = 'thinca/vim-quickrun'
-on_map = {n = '<Plug>'}
-hook_add = 'nmap <silent> <C-l> <Plug>(quickrun)'
-hook_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/vim-quickrun.rc.vim'
-
-
-[[plugins]]
-repo = 'kana/vim-smartchr'
-depends = 'context_filetype.vim'
-on_event = 'InsertCharPre'
-hook_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/vim-smartchr.rc.vim'
-
-
-[[plugins]]
-repo = 'mattn/emmet-vim'
-on_ft = ['html']
+repo     = 'mattn/emmet-vim'
+on_ft    = ['html']
 hook_add = '''
   " expand html tag
   let g:user_emmet_leader_key = ','
 '''
+
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+on_i = 1
 
 
 # [[plugins]]
@@ -64,18 +78,4 @@ hook_add = '''
 # [[plugins]]
 # repo = 'yami-beta/asyncomplete-omni.vim'
 # hook_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/asyncomplete-omni.rc.vim'
-
-
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-if   = "has('nvim')"
-on_event    = 'InsertCharPre'
-hook_add    = 'let g:deoplete#enable_at_startup = 1'
-hook_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/deoplete.rc.vim'
-
-
-# deopleteの後に入れないと'{<CR>}'の補完が上手く働かない
-[[plugins]]
-repo = 'cohama/lexima.vim'
-on_i = 1
 

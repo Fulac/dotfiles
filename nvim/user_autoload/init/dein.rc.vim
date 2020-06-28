@@ -26,6 +26,12 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 
+" vimprocを優先的にインストールする. 最近はいらないかもしれないのでコメントアウト
+" let s:vimproc_dir = s:dein_dir . '/repos/github.com/Shougo/vimproc.vim'
+" if has('vim_starting') && !isdirectory(s:vimproc_dir)
+"   call dein#install(['vimproc'])
+" endif
+
 " プラグインの追加・削除やtomlファイルの設定を変更した後は
 " 適宜 'call dein#update()' や 'call dein#clear_state()' を呼ぶ
 
