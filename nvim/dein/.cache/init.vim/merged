@@ -1,3 +1,0 @@
-{'repo': v:val.repo, 'rev': get(v:val, 'rev', '')}
-0
-[{'rev': '', 'repo': 'Shougo/context_filetype.vim'}, {'rev': '', 'repo': 'Shougo/dein.vim'}, {'rev': '', 'repo': 'Shougo/deoplete.nvim'}, {'rev': '', 'repo': 'Shougo/neomru.vim'}, {'rev': '', 'repo': 'cohama/lexima.vim'}, {'rev': '', 'repo': 'itchyny/lightline.vim'}, {'rev': '', 'repo': 'kana/vim-smartchr'}, {'rev': '', 'repo': 'mattn/emmet-vim'}, {'rev': '', 'repo': 'scrooloose/nerdcommenter'}, {'rev': '', 'repo': 'scrooloose/nerdtree'}, {'rev': '', 'repo': 'thinca/vim-quickrun'}, {'rev': '', 'repo': 'tomasr/molokai'}]
