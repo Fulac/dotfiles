@@ -29,6 +29,9 @@ nnoremap th gT
 " <Leader> を , に割り当てる
 let mapleader = ","
 
+" <LocalLeader> を <Space> に割り当てる
+let maplocalleader = "\<Space>"
+
 
 "---------------------------------------------
 " ファイル処理関連の設定
