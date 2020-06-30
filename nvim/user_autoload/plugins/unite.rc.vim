@@ -38,3 +38,4 @@ endfunction
 
 "unite.vimを縦分割で開始
 let g:unite_enable_split_vertically = 1
+
