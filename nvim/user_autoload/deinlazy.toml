@@ -1,5 +1,6 @@
 [[plugins]]
 repo        = 'thinca/vim-quickrun'
+on_ft       = ['tex']
 on_map      = {n = '<Plug>'}
 hook_add    = 'nmap <silent> <C-l> <Plug>(quickrun)'
 hook_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/vim-quickrun.rc.vim'

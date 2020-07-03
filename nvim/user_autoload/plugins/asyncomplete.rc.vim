@@ -1,11 +1,11 @@
 "---------------------------------------------
 " asyncomplete.vim
 "---------------------------------------------
-" Auto popup
-let g:asyncomplete_auto_popup = 1
-
-" popup delay 0
+" none popup delay (Default: 30 milliseconds)
 let g:asyncomplete_popup_delay = 0
+
+" use usersetting completeopt
+let g:asyncomplete_auto_completeopt = 1
 
 " Tab completion
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"

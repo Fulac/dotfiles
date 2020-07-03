@@ -44,3 +44,13 @@ hook_add = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/asyncomplete.rc.v
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-file.vim'
+hook_add = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/asyncomplete-file.rc.vim'
+
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-buffer.vim'
+hook_add = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/asyncomplete-buffer.rc.vim'
+
