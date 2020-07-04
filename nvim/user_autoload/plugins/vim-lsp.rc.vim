@@ -8,10 +8,10 @@ let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_virtual_text_enabled    = 1
 
 " signのアイコンを設定( 行番号表示の幅が動いて煩わしいので現状非表示 )
-let g:lsp_signs_error       = {'text': '✗'}
-let g:lsp_signs_warning     = {'text': '‼'}
-let g:lsp_signs_information = {'text': 'i'}
-let g:lsp_signs_hint        = {'text': '?'}
+let g:lsp_signs_error       = {'text': "\uf467"}
+let g:lsp_signs_warning     = {'text': "\uf071"}
+let g:lsp_signs_information = {'text': "\uf05a"}
+let g:lsp_signs_hint        = {'text': "\uf400"}
 
 " 定義表示
 nnoremap <LocalLeader>d :<C-u>LspPeekDefinition<CR>
@@ -47,19 +47,21 @@ let s:pyls_config = {'pyls': {'plugins': {
   \   },
   \ }}}
 
-" pylsコマンドのPathを指定
-let s:pyls_path = $PYENV_ROOT.'/shims/pyls'
 
 " pylsの起動定義
 if (executable('pyls'))
+  " pylsコマンドのPathを指定
+  let s:pyls_path = $PYENV_ROOT.'/shims/pyls'
+
   augroup LspPython
     autocmd!
     autocmd User lsp_setup call lsp#register_server({
       \ 'name': 'pyls',
       \ 'cmd': { server_info -> [expand(s:pyls_path)] },
-      \ 'whitelist': ['python'],
+      \ 'allowlist': ['python'],
       \ 'workspace_config': s:pyls_config
       \})
+
     autocmd FileType python setlocal omnifunc=lsp#complete
   augroup END
 endif
@@ -83,6 +85,7 @@ if (executable('clangd'))
       \ 'cmd': { server_info -> ['clangd'] },
       \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
       \})
+
     autocmd FileType c      setlocal omnifunc=lsp#complete
     autocmd FileType cpp    setlocal omnifunc=lsp#complete
     autocmd FileType objc   setlocal omnifunc=lsp#complete
