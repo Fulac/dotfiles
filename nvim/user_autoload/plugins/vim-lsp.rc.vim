@@ -69,7 +69,7 @@ endif
 " .pyを開いたときにLSPを起動
 augroup LaunchPyls
   autocmd!
-  autocmd BufWinEnter *.py :call lsp#enable()
+  autocmd FileType python :call lsp#enable()
 augroup END
 
 
@@ -96,9 +96,9 @@ endif
 " C, C++等を開いたときにLSPを起動
 augroup LaunchClangd
   autocmd!
-  autocmd BufWinEnter *.c   :call lsp#enable()
-  autocmd BufWinEnter *.cpp :call lsp#enable()
-  autocmd BufWinEnter *.m   :call lsp#enable()
-  autocmd BufWinEnter *.mm  :call lsp#enable()
+  autocmd FileType c      :call lsp#enable()
+  autocmd FileType cpp    :call lsp#enable()
+  autocmd FileType objc   :call lsp#enable()
+  autocmd FileType objcpp :call lsp#enable()
 augroup END
 
