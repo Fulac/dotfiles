@@ -31,13 +31,12 @@ let mapleader = ","
 
 " <LocalLeader> を <Space> に割り当てる
 let maplocalleader = "\<Space>"
-let maplocalleader
 
 
 "---------------------------------------------
 " 補完オプション
 "---------------------------------------------
-" set completeopt=menuone,preview,noinsert,noselect
+" set completeopt=menu,noinsert,noselect
 
 
 "---------------------------------------------
