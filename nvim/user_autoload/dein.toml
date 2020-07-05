@@ -27,11 +27,6 @@ repo = 'Shougo/context_filetype.vim'
 
 
 
-# asyncomplete読み込み後にロードすると<CR>のキーマップを上書きするため注意
-[[plugins]]
-repo = 'cohama/lexima.vim'
-
-
 [[plugins]]
 repo = 'prabirshrestha/async.vim'
 
