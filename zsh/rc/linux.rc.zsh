@@ -24,7 +24,7 @@ fi
 # Aliases
 # --------------------------------------------
 alias a="./a.out"
-alias ls="ls --color"
+alias ls="ls --color=auto"
 alias ll="ls --color -lA"
 alias la="ls --color -A"
 alias lf="ls --color -F"
