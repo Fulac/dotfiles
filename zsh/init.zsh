@@ -7,13 +7,13 @@ fi
 
 case ${OSTYPE} in
   linux*)
-    source "${HOME}/dotfiles/zsh/rc/linux.rc.zsh"
+    source "${HOME}/dotfiles/zsh/linux.rc.zsh"
     ;;
   darwin*)
-    source "${HOME}/dotfiles/zsh/rc/osx.rc.zsh"
+    source "${HOME}/dotfiles/zsh/osx.rc.zsh"
     ;;
   cygwin)
-    source "${HOME}/dotfiles/zsh/rc/cygwin.rc.zsh"
+    source "${HOME}/dotfiles/zsh/cygwin.rc.zsh"
     ;;
 esac
 
@@ -21,25 +21,25 @@ esac
 # --------------------------------------------
 # General Settings
 # --------------------------------------------
-source "${HOME}/dotfiles/zsh/rc/general.rc.zsh"
+source "${HOME}/dotfiles/zsh/general.rc.zsh"
 
 
 # --------------------------------------------
 # View
 # --------------------------------------------
-source "${HOME}/dotfiles/zsh/rc/view.rc.zsh"
+source "${HOME}/dotfiles/zsh/view.rc.zsh"
 
 
 # --------------------------------------------
 # Aliases
 # --------------------------------------------
-source "${HOME}/dotfiles/zsh/rc/alias.rc.zsh"
+source "${HOME}/dotfiles/zsh/alias.rc.zsh"
 
 
 # --------------------------------------------
 # zplug
 # --------------------------------------------
-source "${HOME}/dotfiles/zsh/rc/zplug.rc.zsh"
+source "${HOME}/dotfiles/zsh/zplug.rc.zsh"
 
 
 # --------------------------------------------
