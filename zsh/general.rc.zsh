@@ -56,7 +56,9 @@ fi
 if [ -d "${HOME}/.pyenv" ]; then
  export PYENV_ROOT="${HOME}/.pyenv"
  export PATH="${PYENV_ROOT}/bin":$PATH
- eval "$(pyenv init -)"
+ # "pyenv init -"はpyenv globalでversionを変更したときに初期化するコマンドの模様
+ # 一般的に設定ファイルに記入するみたいだが、wsl2_ubuntuで既に初期化されてると警告されるのでコメントアウト
+ #eval "$(pyenv init -)"
 fi
 
 export XDG_CONFIG_HOME="${HOME}/.config"
