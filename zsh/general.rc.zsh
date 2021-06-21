@@ -61,6 +61,10 @@ fi
 
 export XDG_CONFIG_HOME="${HOME}/.config"
 
+# KVM設定
+# virshの操作を一般ユーザで可能にする設定
+export LIBVIRT_DEFAULT_URI="qemu:///system"
+
 
 # --------------------------------------------
 # History
