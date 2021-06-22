@@ -65,6 +65,13 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 # virshの操作を一般ユーザで可能にする設定
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 
+# GO
+if [ -d "/usr/local/go" ]; then
+  export GOROOT="/usr/local/go"
+  export GOPATH="${GOROOT}/work"
+  export PATH=$PATH:"${GOROOT}/bin:${GOPATH}/bin"
+fi
+
 
 # --------------------------------------------
 # History
