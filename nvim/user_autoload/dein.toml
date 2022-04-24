@@ -55,3 +55,9 @@ hook_add = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/asyncomplete-file
 repo     = 'prabirshrestha/asyncomplete-buffer.vim'
 hook_add = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/asyncomplete-buffer.rc.vim'
 
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+hook_post_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/lexima.rc.vim'
+
+

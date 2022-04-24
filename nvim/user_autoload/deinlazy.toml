@@ -46,8 +46,3 @@ hook_add = '''
 '''
 
 
-[[plugins]]
-repo = 'cohama/lexima.vim'
-on_i = 1
-hook_post_source = 'source $XDG_CONFIG_HOME/nvim/user_autoload/plugins/lexima.rc.vim'
-
