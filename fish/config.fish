@@ -45,7 +45,7 @@ set -U fish_color_host_remote normal
 set -U fish_color_keyword
 set -U fish_color_match --background=brblue
 set -U fish_color_normal normal
-set -U fish_color_operator 00a6b2
+set -U fish_color_operator ff6e33
 set -U fish_color_option
 set -U fish_color_param 87afff
 set -U fish_color_quote ffff00
