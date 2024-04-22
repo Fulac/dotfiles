@@ -18,7 +18,12 @@ abbr -a hists history search
 # --------------------------------------------
 # PATH Settings
 # --------------------------------------------
+# XDG_CONFIG_HOME
 set -Ux XDG_CONFIG_HOME $HOME/.config
+
+# Deno
+set -x DENO_INSTALL $HOME/.deno
+set -x PATH $DENO_INSTALL/bin $PATH
 
 # --------------------------------------------
 # CommandLine Color Settings
