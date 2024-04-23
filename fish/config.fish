@@ -63,6 +63,10 @@ set -U fish_color_valid_path --underline
 set FLCLR_USER_BG           353b35
 set FLCLR_USER_FG           ffffff
 
+# Color for USER segments
+set FLCLR_USERHOST_BG       353b35
+set FLCLR_USERHOST_FG       ffffff
+
 # Color for WRITE segments
 set FLCLR_WRITE_BG          f3ff05
 set FLCLR_WRITE_FG          000000
