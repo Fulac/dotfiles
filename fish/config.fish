@@ -26,6 +26,11 @@ set -x DENO_INSTALL $HOME/.deno
 set -x PATH $DENO_INSTALL/bin $PATH
 
 # --------------------------------------------
+# anyenv settings
+# --------------------------------------------
+status --is-interactive; and source (anyenv init -|psub)
+
+# --------------------------------------------
 # CommandLine Color Settings
 # --------------------------------------------
 # set color
