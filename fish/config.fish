@@ -21,14 +21,12 @@ abbr -a hists history search
 # XDG_CONFIG_HOME
 set -Ux XDG_CONFIG_HOME $HOME/.config
 
-# Deno
-set -x DENO_INSTALL $HOME/.deno
-set -x PATH $DENO_INSTALL/bin $PATH
-
 # --------------------------------------------
 # anyenv settings
 # --------------------------------------------
-status --is-interactive; and source (anyenv init -|psub)
+if test -d $HOME/.anyenv
+  status --is-interactive; and source (anyenv init -|psub)
+end
 
 # --------------------------------------------
 # CommandLine Color Settings
