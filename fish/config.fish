@@ -14,7 +14,7 @@ abbr -a cl clear
 abbr -a df df -h
 abbr -a du du -h
 abbr -a hists history search
-abbr -a clab containerlab
+abbr -a clab sudo containerlab
 
 # --------------------------------------------
 # PATH Settings
