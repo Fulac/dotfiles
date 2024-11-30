@@ -2,7 +2,7 @@
 -- package manager
 ---------------------------------------------
 --  lazy.nvim
-local lazypath = vim.fn.stdpath( 'data' ) .. '/lazy/lazy.nvim'
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -16,6 +16,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
+
+local plugins = {
+  { import = 'plugins' },
+}
 
 local opts = {
   default = {
@@ -50,5 +54,5 @@ local opts = {
 }
 
 -- Any lua file in ~/.config/nvim/lua/pulgins/*.lua will be automatically merged
-require( 'lazy' ).setup( 'plugins', opts )
+require( 'lazy' ).setup( plugins, opts )
 

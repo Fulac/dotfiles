@@ -2,7 +2,7 @@
 -- ddc.vim
 ---------------------------------------------
 vim.fn['ddc#custom#patch_global']( 'ui', 'pum' )
-vim.fn['ddc#custom#patch_global']( 'sources', {'around', 'buffer', 'nvim-lua'} )
+vim.fn['ddc#custom#patch_global']( 'sources', {'around', 'buffer', 'nvim-lua', 'lsp'} )
 vim.fn['ddc#custom#patch_global']( 'sourceOptions', {
   _ = {
     matchers = {'matcher_fuzzy'},
@@ -16,6 +16,10 @@ vim.fn['ddc#custom#patch_global']( 'sourceOptions', {
     mark = {'[Lua]'},
     forceCompletionPattern = {'\\.'},
   },
+  lsp = {
+    mark = 'lsp',
+    forceCompletionPattern = {'\\.\\w*|:\\w*|->\\w*'}
+  },
 })
 vim.fn['ddc#custom#patch_global']( 'sourceParams', {
   buffer = {
@@ -24,12 +28,19 @@ vim.fn['ddc#custom#patch_global']( 'sourceParams', {
     fromAltBuf = {'v:true'},
     forceCollect = {'v:true'},
   },
+  lsp = {
+    snippetEngine = vim.fn['denops#callback#register'](function(body)
+      vim.fn['vsnip#anonymous'](body)
+    end),
+    enableResolveItem = true,
+    enableAdditionalTextEdit = true,
+  },
 })
 vim.fn['ddc#enable']()
 
 --keymap
 vim.keymap.set( 'i', '<TAB>', function()
-  return vim.fn['pum#visible']() and 
+  return vim.fn['pum#visible']() and
     '<Cmd>call pum#map#insert_relative(+1)<CR>' or '<TAB>'
 end, {expr = true}
 )

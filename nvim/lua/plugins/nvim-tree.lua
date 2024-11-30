@@ -5,7 +5,7 @@ return{
   config = function()
     -- optionally enable 24-bit colour
     vim.opt.termguicolors = true
-    
+
     -- OR setup with some options
     require('nvim-tree').setup({
       sort = {
