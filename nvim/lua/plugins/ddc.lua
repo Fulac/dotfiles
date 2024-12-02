@@ -7,6 +7,7 @@ return  {
   'tani/ddc-fuzzy',
   'matsui54/ddc-source-buffer',
   'uga-rosa/ddc-source-nvim-lua',
+  'LumaKernel/ddc-source-file',
   lazy = false,
 }
 

@@ -2,7 +2,7 @@
 -- ddc.vim
 ---------------------------------------------
 vim.fn['ddc#custom#patch_global']( 'ui', 'pum' )
-vim.fn['ddc#custom#patch_global']( 'sources', {'around', 'buffer', 'nvim-lua', 'lsp'} )
+vim.fn['ddc#custom#patch_global']( 'sources', {'around', 'file', 'buffer', 'nvim-lua', 'lsp'} )
 vim.fn['ddc#custom#patch_global']( 'sourceOptions', {
   _ = {
     matchers = {'matcher_fuzzy'},
@@ -18,7 +18,12 @@ vim.fn['ddc#custom#patch_global']( 'sourceOptions', {
   },
   lsp = {
     mark = 'lsp',
-    forceCompletionPattern = {'\\.\\w*|:\\w*|->\\w*'}
+    forceCompletionPattern = {'\\.\\w*|:\\w*|->\\w*'},
+  },
+  file = {
+    mark = {'F'},
+    isVolatile = {'v:true'},
+    forceCompletionPattern = {'\\S/\\S*'},
   },
 })
 vim.fn['ddc#custom#patch_global']( 'sourceParams', {
@@ -35,6 +40,9 @@ vim.fn['ddc#custom#patch_global']( 'sourceParams', {
     enableResolveItem = true,
     enableAdditionalTextEdit = true,
   },
+  file = {
+    mode = {'win32'},
+  }
 })
 vim.fn['ddc#enable']()
 
