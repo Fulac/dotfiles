@@ -7,7 +7,6 @@ local lsp_servers = {
   'ruff',
   'robotframework_ls',
   'yamlls',
-  'lua_ls',
   'jsonls',
 }
 
