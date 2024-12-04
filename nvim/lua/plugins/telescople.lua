@@ -4,8 +4,8 @@ return {
   dependencies = {'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-fzf-native.nvim'},
   config = function()
     local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<C-e>', builtin.find_files, {})
-    vim.keymap.set('n', '<C-g>', builtin.live_grep, {})
+    vim.keymap.set('n', 'ff', builtin.find_files, {})
+    vim.keymap.set('n', 'fg', builtin.live_grep, {})
 
     extensions = {
       fzf = {
