@@ -22,8 +22,8 @@ vim.keymap.set( 'n', '<C-h>', '<C-w>h' )
 vim.keymap.set( 'n', '<C-l>', '<C-w>l' )
 
 -- タブ移動(次、前)
-vim.keymap.set('n', 'tl', 'gt' )
-vim.keymap.set('n', 'th', 'gT' )
+vim.keymap.set('n', 'tt', 'gt' )
+vim.keymap.set('n', 'tr', 'gT' )
 
 -- <Leader>を<Space>に割り当てる
 vim.g.mapleader = ' '
