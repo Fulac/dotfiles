@@ -3,6 +3,7 @@
 ----------------------------------------------
 -- jf でノーマルモードへ戻る
 vim.keymap.set( 'i', 'jf', '<ESC>' )
+vim.keymap.set( 'i', 'ｊｆ', '<ESC>' )
 
 -- 検索のハイライトを解除する (<Esc><Esc>で)
 vim.keymap.set( 'n', '<ESC><ESC>', ':nohlsearch<CR><ESC>' )
