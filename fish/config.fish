@@ -15,6 +15,7 @@ abbr -a df df -h
 abbr -a du du -h
 abbr -a hists history search
 abbr -a clab sudo containerlab
+abbr -a ip ip -c
 
 # --------------------------------------------
 # PATH Settings
