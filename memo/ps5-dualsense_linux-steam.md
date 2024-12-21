@@ -2,7 +2,7 @@
 
 ### udev.rulesの作成
 下記ファイルを作成する。
-/etc/udev/rules/70-dualsensectl.rules
+/etc/udev/rules.d/70-dualsensectl.rules
 
 ```
 # PS5 DualSense controller over USB hidraw
