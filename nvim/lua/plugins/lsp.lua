@@ -1,7 +1,6 @@
 local lsp_servers = {
   'ansiblels',
   'clangd',
-  'csharp_ls',
   'marksman',
   'pyright',
   'ruff',
