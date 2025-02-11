@@ -30,7 +30,12 @@ if [ -d ${fish_conf_path} ]; then
   fi
 fi
 
-### Neovim
-ln -sf ~/dotfiles/nvim ~/.config/nvim
-echo "make symbolic link 'nvim' at ~/.config/"
+### Vim/Neovim
+if [ $args = "-client" ] || [ $args = "-c" ]; then
+  ln -sf ~/dotfiles/nvim ~/.config/nvim
+  echo "make symbolic link 'nvim' at ~/.config/"
+elif [ $args = "-server" ] || [ $args = "-s" ]; then 
+  ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
+  echo "make symbolic link 'vimrc' at ~/"
+fi
 
