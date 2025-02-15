@@ -271,9 +271,6 @@ else
 end
 
 if OSTYPE == 'Linux\n' then
-  -- 対応する括弧をハイライトする際の色設定
-  vim.api.nvim_set_hl(0, "MatchParen", {ctermfg = "White", ctermbg = "DarkGrey"})
-
   -- python3のパス設定
   vim.g.python3_host_prog = exec_os_cmd('which python3')
 
