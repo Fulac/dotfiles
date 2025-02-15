@@ -1,9 +1,8 @@
 return {
-  'tanvirtin/monokai.nvim',
+  'jacoborus/tender.vim',
   lazy = false,
   config = function()
-    require('monokai').setup{ italics = false }
-    vim.cmd.colorscheme 'monokai'
+    vim.cmd.colorscheme 'tender'
     vim.api.nvim_set_hl( 0, 'Normal', {ctermbg = 'none'} )
     vim.api.nvim_set_hl( 0, 'NonText', {ctermbg = 'none'} )
     vim.api.nvim_set_hl( 0, 'LineNr', {fg = '#504945', ctermbg = 'none'} )
