@@ -21,7 +21,7 @@ abbr -a ip ip -c
 # PATH Settings
 # --------------------------------------------
 # XDG_CONFIG_HOME
-set -Ux XDG_CONFIG_HOME $HOME/.config
+set -x XDG_CONFIG_HOME $HOME/.config
 
 # --------------------------------------------
 # anyenv settings
@@ -34,32 +34,32 @@ end
 # CommandLine Color Settings
 # --------------------------------------------
 # set color
-set -U fish_color_normal normal
-set -U fish_color_autosuggestion afafaf
-set -U fish_color_cancel --reverse
-set -U fish_color_command 00ff00
-set -U fish_color_comment ff8700
-set -U fish_color_cwd 98c379
-set -U fish_color_cwd_root e06c75
-set -U fish_color_end ff87d7
-set -U fish_color_error 585858
-set -U fish_color_escape 00a6b2
-set -U fish_color_history_current --bold
-set -U fish_color_host normal
-set -U fish_color_host_remote normal
-set -U fish_color_keyword
-set -U fish_color_match --background=brblue
-set -U fish_color_normal normal
-set -U fish_color_operator ff6e33
-set -U fish_color_option
-set -U fish_color_param 87afff
-set -U fish_color_quote ffff00
-set -U fish_color_redirection b2b2b2
-set -U fish_color_search_match bryellow --background=brblack
-set -U fish_color_selection white --bold --background=brblack
-set -U fish_color_status red
-set -U fish_color_user brgreen
-set -U fish_color_valid_path --underline
+set -x fish_color_normal normal
+set -x fish_color_autosuggestion afafaf
+set -x fish_color_cancel --reverse
+set -x fish_color_command 00ff00
+set -x fish_color_comment ff8700
+set -x fish_color_cwd 98c379
+set -x fish_color_cwd_root e06c75
+set -x fish_color_end ff87d7
+set -x fish_color_error 585858
+set -x fish_color_escape 00a6b2
+set -x fish_color_history_current --bold
+set -x fish_color_host normal
+set -x fish_color_host_remote normal
+set -x fish_color_keyword
+set -x fish_color_match --background=brblue
+set -x fish_color_normal normal
+set -x fish_color_operator ff6e33
+set -x fish_color_option
+set -x fish_color_param 87afff
+set -x fish_color_quote ffff00
+set -x fish_color_redirection b2b2b2
+set -x fish_color_search_match bryellow --background=brblack
+set -x fish_color_selection white --bold --background=brblack
+set -x fish_color_status red
+set -x fish_color_user brgreen
+set -x fish_color_valid_path --underline
 
 # --------------------------------------------
 # FishLine Color Settings
