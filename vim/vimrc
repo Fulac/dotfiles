@@ -206,7 +206,7 @@ hi PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg
 hi MatchParen term=standout ctermbg=DarkGrey ctermfg=White
 
 " カラースキーム
-colorscheme unokai
+colorscheme tender
 
 
 "---------------------------------------------
