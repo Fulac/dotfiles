@@ -267,9 +267,6 @@ set list
 " 不可視文字の表示記号設定
 set listchars=extends:',precedes:'
 
-" モードの表示を消す
-set noshowmode
-
 
 "---------------------------------------------
 " カーソル移動関連の設定
