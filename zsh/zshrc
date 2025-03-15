@@ -26,15 +26,6 @@ setopt correct
 # =以降も補完する(--prefix=/usrなど)
 setopt magic_equal_subst
 
-# プロンプト定義内で変数置換やコマンド置換を扱う
-setopt prompt_subst
-
-# バックグラウンドジョブの状態変化を即時報告する
-setopt notify
-
-# =commandを'which command'と同じ処理にする
-setopt equals
-
 # Ctrl+sのロック, Ctrl+qのロック解除を無効にする
 setopt no_flow_control
 
@@ -179,8 +170,12 @@ autoload -Uz _zinit
 zinit ice wait lucid; zinit light zsh-users/zsh-completions
 zinit ice wait lucid; zinit light zsh-users/zsh-autosuggestions
 zinit ice wait lucid; zinit light zsh-users/zsh-syntax-highlighting
-zinit ice depth=1;    zinit light romkatv/powerlevel10k
+zinit ice depth="1";  zinit light romkatv/powerlevel10k
+zinit ice wait lucid; zinit load zdharma-continuum/history-search-multi-word
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ${HOME}/dotfiles/zsh/p10k.zsh ]] || source ${HOME}/dotfiles/zsh/p10k.zsh
+
+# zsh-autosuggestionsのキー設定 (Ctrl+fで補完コマンドを決定)
+bindkey '^f' autosuggest-accept
 
