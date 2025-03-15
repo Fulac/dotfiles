@@ -95,48 +95,6 @@ setopt hist_ignore_all_dups
 
 
 # --------------------------------------------
-# Prompt
-# --------------------------------------------
-## プロンプトに色を付ける
-#autoload -U colors; colors
-#
-## プロンプトが表示されるたびにプロンプト文字列を評価、置換する
-#setopt prompt_subst
-#
-## 一般ユーザ時
-## 通常のプロンプト
-#tmp_prompt="%{${fg[cyan]}%}%n%# %{${reset_color}%}"
-## セカンダリのプロンプト (コマンドが２行以上のときに表示される)
-#tmp_prompt2="%{${fg[cyan]}%}%_> %{${reset_color}%}"
-## 右側のプロンプト
-#tmp_rprompt="%{${fg[green]}%}[%~]%{${reset_color}%}"
-## スペル訂正用のプロンプト
-#tmp_sprompt="%{${fg[yellow]}%}%r is correct? [Yes, No, Abort, Edit]:%{${reset_color}%}"
-#
-## rootユーザ時(太字にし、アンダーバーをつける)
-#if [[ ${UID} -eq 0 ]] then
-#  tmp_prompt="%{${fg[red]}%}%n%# %{${reset_color}%}"
-#  tmp_prompt2="%{${fg[red]}%}%_> %{${reset_color}%}"
-#  tmp_rprompt="${tmp_rprompt}%u%b"
-#  tmp_sprompt="${tmp_sprompt}%u%b"
-#fi
-#
-## 通常のプロンプト
-#PROMPT=$tmp_prompt
-## セカンダリのプロンプト
-#PROMPT2=$tmp_prompt2
-## 右側のプロンプト
-#RPROMPT=$tmp_rprompt
-## スペル訂正用のプロンプト
-#SPROMPT=$tmp_sprompt
-#
-## SSHログイン時のプロンプト
-#[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-#  PROMPT="%{${fg[red]}%}${HOST%%.*} ${PROMPT}"
-#;
-
-
-# --------------------------------------------
 # Ls Color
 # --------------------------------------------
 # 色の設定
