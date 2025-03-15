@@ -221,7 +221,7 @@
 
   ##################################[ dir: current directory ]##################################
   # Current directory background color.
-  typeset -g POWERLEVEL9K_DIR_BACKGROUND=155
+  typeset -g POWERLEVEL9K_DIR_BACKGROUND=118
   # Default current directory foreground color.
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=232
   # If directory is too long, shorten some of its segments to the shortest possible unique
@@ -361,10 +361,10 @@
 
   #####################################[ vcs: git status ]######################################
   # Version control background colors.
-  typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=120
-  typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=228
-  typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=177
-  typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=208
+  typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=155
+  typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=227
+  typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=225
+  typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=209
   typeset -g POWERLEVEL9K_VCS_LOADING_BACKGROUND=250
 
   # Branch icon. Set this parameter to '\UE0A0 ' for the popular Powerline branch icon.
@@ -972,11 +972,11 @@
 
   ##################################[ context: user@hostname ]##################################
   # Context color when running with privileges.
-  typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=1
-  typeset -g POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND=255
+  typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=255
+  typeset -g POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND=160
   # Context color in SSH without privileges.
-  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_FOREGROUND=232
-  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_BACKGROUND=225
+  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_FOREGROUND=202
+  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_BACKGROUND=255
   # Default context color (no privileges, no SSH).
   typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND=232
   typeset -g POWERLEVEL9K_CONTEXT_BACKGROUND=255
