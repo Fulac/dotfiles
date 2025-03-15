@@ -18,7 +18,7 @@ VIM_CONFIG_PATH="${HOME}/.vim"
 NVIM_CONFIG_PATH="${HOME}/.config/nvim"
 
 ### zsh
-ln -sf ${DOTFILES_ZSH_PATH} ${HOME}/.zshrc
+ln -sf ${DOTFILES_ZSH_PATH}/zshrc ${HOME}/.zshrc
 echo "make symbolic link '.zshrc' at ${HOME}"
 
 ### fish
