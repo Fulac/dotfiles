@@ -141,7 +141,7 @@ setopt auto_pushd
 
 # kubectlの補完設定
 if type kubectl > /dev/null 2>&1; then
-  source <(kubectl completion bash)
+  source <(kubectl completion zsh)
 fi
 
 # --------------------------------------------
