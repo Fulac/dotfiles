@@ -51,10 +51,20 @@ echo "make symbolic link '.zshrc' at ${HOME}"
 #fi
 
 ### Neovim
+if [ -L ${NVIM_CONFIG_PATH} ]; then
+  unlink ${NVIM_CONFIG_PATH}
+elif [ -d ${NVIM_CONFIG_PATH} ]; then
+  rm -rf ${NVIM_CONFIG_PATH}
+fi
 ln -sf ${DOTFILES_NVIM_PATH} ${NVIM_CONFIG_PATH}
 echo "make symbolic link 'nvim' at ${HOME}/.config"
 
 ### Vim
+if [ -L ${VIM_CONFIG_PATH} ]; then
+  unlink ${VIM_CONFIG_PATH}
+elif [ -d ${VIM_CONFIG_PATH} ]; then
+  rm -rf ${VIM_CONFIG_PATH}
+fi
 ln -sf ${DOTFILES_VIM_PATH} ${VIM_CONFIG_PATH}
 echo "make symbolic link 'vim' at ${HOME}"
 
