@@ -221,7 +221,7 @@
 
   ##################################[ dir: current directory ]##################################
   # Current directory background color.
-  typeset -g POWERLEVEL9K_DIR_BACKGROUND=195
+  typeset -g POWERLEVEL9K_DIR_BACKGROUND=119
   # Default current directory foreground color.
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=232
   # If directory is too long, shorten some of its segments to the shortest possible unique
@@ -361,7 +361,7 @@
 
   #####################################[ vcs: git status ]######################################
   # Version control background colors.
-  typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=154
+  typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=195
   typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=226
   typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=225
   typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=209
