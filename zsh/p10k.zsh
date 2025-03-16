@@ -33,7 +33,6 @@
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     os_icon                 # os identifier
-    context                 # user@hostname
     dir                     # current directory
     vcs                     # git status
     # =========================[ Line #2 ]=========================
@@ -48,7 +47,8 @@
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     #status                  # exit code of the last command
-    #command_execution_time  # duration of the last command
+    command_execution_time  # duration of the last command
+    context                 # user@hostname
     #background_jobs         # presence of background jobs
     #direnv                  # direnv status (https://direnv.net/)
     #asdf                    # asdf version manager (https://github.com/asdf-vm/asdf)
@@ -192,7 +192,7 @@
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=232
-  typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND=251
+  typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND=254
   # Custom icon.
   # typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='⭐'
 
@@ -362,7 +362,7 @@
   #####################################[ vcs: git status ]######################################
   # Version control background colors.
   typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=155
-  typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=227
+  typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=226
   typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=225
   typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=209
   typeset -g POWERLEVEL9K_VCS_LOADING_BACKGROUND=250
@@ -553,8 +553,8 @@
 
   ###################[ command_execution_time: duration of the last command ]###################
   # Execution time color.
-  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=0
-  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND=3
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=232
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND=214
   # Show duration of the last command if takes at least this many seconds.
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=3
   # Show this many fractional digits. Zero means round to seconds.
@@ -975,11 +975,11 @@
   typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=255
   typeset -g POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND=160
   # Context color in SSH without privileges.
-  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_FOREGROUND=1
-  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_BACKGROUND=255
+  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_FOREGROUND=232
+  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_BACKGROUND=147
   # Default context color (no privileges, no SSH).
   typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND=232
-  typeset -g POWERLEVEL9K_CONTEXT_BACKGROUND=255
+  typeset -g POWERLEVEL9K_CONTEXT_BACKGROUND=195
 
   # Context format when running with privileges: user@hostname.
   typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE='%n@%m'
@@ -990,7 +990,7 @@
 
   # Don't show context unless running with privileges or in SSH.
   # Tip: Remove the next line to always show context.
-  #typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_{CONTENT,VISUAL_IDENTIFIER}_EXPANSION=
+  typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_{CONTENT,VISUAL_IDENTIFIER}_EXPANSION=
 
   # Custom icon.
   # typeset -g POWERLEVEL9K_CONTEXT_VISUAL_IDENTIFIER_EXPANSION='⭐'
