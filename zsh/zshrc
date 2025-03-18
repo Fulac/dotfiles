@@ -1,8 +1,8 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+if [[ -r "${XDG_CACHE_HOME:-${HOME}/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-${HOME}/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # --------------------------------------------
@@ -51,8 +51,8 @@ alias -g @l='| less'
 export XDG_CONFIG_HOME="${HOME}/.config"
 
 # anyenv
-if [[ -d "$HOME/.anyenv" ]]; then
-    export ANYENV_ROOT="$HOME/.anyenv"
+if [[ -d "${HOME}/.anyenv" ]]; then
+    export ANYENV_ROOT="${HOME}/.anyenv"
     export PATH="$ANYENV_ROOT/bin:$PATH"
     eval "$(anyenv init -)"
 fi
@@ -156,12 +156,12 @@ unsetopt caseglob
 # --------------------------------------------
 # zinit (プラグインマネージャ)
 # --------------------------------------------
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-  command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-  command git clone https://github.com/zdharma-continuum/zinit "$HOME/.zinit/bin"
+if [[ ! -f ${HOME}/.zinit/bin/zinit.zsh ]]; then
+  command mkdir -p "${HOME}/.zinit" && command chmod g-rwX "${HOME}/.zinit"
+  command git clone https://github.com/zdharma-continuum/zinit "${HOME}/.zinit/bin"
 fi
 
-source "$HOME/.zinit/bin/zinit.zsh"
+source "${HOME}/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
