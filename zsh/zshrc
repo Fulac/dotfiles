@@ -53,12 +53,12 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 # anyenv
 if [[ -d "${HOME}/.anyenv" ]]; then
     export ANYENV_ROOT="${HOME}/.anyenv"
-    export PATH="${PATH}:${ANYENV_ROOT}/bin"
+    export PATH="${ANYENV_ROOT}/bin:${PATH}"
     eval "$(anyenv init -)"
 fi
 
 if [[ -d "${HOME}/.deno" ]]; then
-    export PATH="${PATH}:${HOME}/.deno/bin"
+    export PATH="${HOME}/.deno/bin:${PATH}"
 fi
 
 # --------------------------------------------
