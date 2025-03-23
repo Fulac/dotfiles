@@ -139,6 +139,11 @@ zstyle ':completion:*' ignore-parents parent pwd
 # cd -<Tab> で今までに行ったディレクトリを表示かつ移動
 setopt auto_pushd
 
+# podmanの補完設定
+if type podman > /dev/null 2>&1; then
+  podman completion -f "${fpath[1]}/_podman" zsh
+fi
+
 # kubectlの補完設定
 if type kubectl > /dev/null 2>&1; then
   source <(kubectl completion zsh)
