@@ -45,3 +45,8 @@ kubectl describe -n <namespace> <pod_name>
 kubectl logs -n <namespace> <pod_name>
 ```
 
+## Podの手動再起動(rollout)
+- NameSpace単位でPodを手動再起動する方法
+```bash
+kubectl rollout restart deployment -n <namespace>
+```
