@@ -57,7 +57,7 @@ sudo kubeadm config images pull
 sudo systemctl enable --now kubelet
 
 16. kubernetesクラスタの初期化
-kubeadm init --skip-phases=addon/kube-proxy
+sudo kubeadm init --skip-phases=addon/kube-proxy
 
 17. ユーザのアクセス権追加
 mkdir -p $HOME/.kube
