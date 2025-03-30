@@ -1,5 +1,6 @@
-#linux steamでps5コントローラーを認識させるための設定
-
-### steam-devices-git (AUR) をインストールする
-### yay -S steam-devices-git
+## steam(Linux)でps5コントローラーを認識させるための設定
+- steam-devices-git (AUR) をインストールする
+```bash
+yay -S steam-devices-git
+```
 
