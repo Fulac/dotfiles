@@ -1,11 +1,22 @@
 ## kubernetesの構築メモ
 
-#### 前提条件
+### 前提条件
 1. 利用OS：Fedora41
 2. シェル：zsh (or bash)
 
 ---
-#### kubernetes(マスターノード)の構築
+### NetworkManagerのDNS設定が`/etc/resolve.conf`に反映されない問題の対処
+Fedora41において`resolve.conf`にDNS設定が反映されず参照先がlocalhostとなっているため、corednsがCrashLoopBackOffとなって起動できない問題の対処方法
+```bash
+sudo mkdir -p /etc/systemd/resolved.conf.d/
+sudo cat <<EOF | sudo tee /etc/systemd/resolved.conf.d/stub-listener.conf
+[Resolve]
+DNSStubListener=no
+EOF
+```
+
+---
+### kubernetes(マスターノード)の構築
 参考：[Fedora公式ドキュメント](https://docs.fedoraproject.org/en-US/quick-docs/using-kubernetes-kubeadm/)
 1. パッケージの最新化
 ```bash
@@ -57,20 +68,22 @@ sudo sysctl --system
 ```
 
 9. overlay, br_netfileterが正常に読み込めていることを確認
-<br>overlay, br_netfilterが表示さればOK
+
+
+overlay, br_netfilterが表示さればOK
 ```bash
 lsmod | grep br_netfilter
 lsmod | grep overlay
 ```
 
-10. ネットワークモジュールのパラメータ値確認
-<br>値が'1'であることを確認する
+10. ネットワークモジュールのパラメータ値確認  
+値が'1'であることを確認する
 ```bash
 sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables net.ipv4.ip_forward
 ```
 
-11. コンテナランタイムのインストール
-<br>cri-oを利用する
+11. コンテナランタイムのインストール  
+cri-oを利用する
 ```bash
 sudo dnf install cri-o containernetworking-plugins
 ```
@@ -95,8 +108,8 @@ sudo kubeadm config images pull
 sudo systemctl enable --now kubelet
 ```
 
-16. kubernetesクラスタの初期化
-<br>CNIにciliumを利用するためkube-proxyの起動を抑止する
+16. kubernetesクラスタの初期化  
+CNIにciliumを利用するためkube-proxyの起動を抑止する
 ```bash
 sudo kubeadm init --skip-phases=addon/kube-proxy
 ```
@@ -109,7 +122,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
 ---
-#### Cilium(CNI)のインストールと起動
+### Cilium(CNI)のインストールと起動
 参考：[cilium公式ドキュメント](https://docs.cilium.io/en/stable/gettingstarted/k8s-install-default/)
 1. cilium cliのインストール
 ```bash
@@ -127,20 +140,20 @@ rm cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
 cilium install --version 1.17.2
 ```
 
-3. cilium起動状態の確認
-<br>Cilium, OperatorのステータスがOKとなるまで待機
+3. cilium起動状態の確認  
+Cilium, OperatorのステータスがOKとなるまで待機
 ```bash
 cilium status --wait
 ```
 
-4. hubbleの有効化
-<br>ワーカーノードをクラスタに追加するまでは正常に起動しない
+4. hubbleの有効化  
+ワーカーノードをクラスタに追加するまでは正常に起動しない
 ```bash
 cilium hubble enable --ui
 ```
 
 ---
-#### kubernetes(ワーカーノード)の構築
+### kubernetes(ワーカーノード)の構築
 1. パッケージの最新化
 ```bash
 sudo dnf upgrade
@@ -224,11 +237,11 @@ sudo systemctl enable --now kubelet
 ```
 
 15. kubernetesクラスタへの追加
-<br>マスターノードにてコマンドを実行する
+マスターノード側で下記コマンドを実行する
 ```bash
 kubeadm token create --print-join-command
 ```
-出力されたコマンドをワーカーノードで実行する. sudoコマンドが必要？
+出力されたコマンドをクラスタに追加したいワーカーノードで実行する. sudoコマンドが必要？
 ```bash
 (例) sudo kubeadm join <MaterNode IPaddr>:6443 --token <Token str> --discovery-token-ca-cert-hash <hash value>
 ```
