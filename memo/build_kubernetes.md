@@ -4,10 +4,8 @@
 1. 利用OS：Fedora41
 2. シェル：zsh (or bash)
 
-
 #### 参考
 [Fedora公式ドキュメント](https://docs.fedoraproject.org/en-US/quick-docs/using-kubernetes-kubeadm/)
-
 
 #### kubernetesのインストール（マスターノード）
 1. パッケージの最新化
@@ -60,20 +58,20 @@ sudo sysctl --system
 ```
 
 9. overlay, br_netfileterが正常に読み込めていることを確認
-overlay, br_netfilterが表示さればOK
+  overlay, br_netfilterが表示さればOK
 ```bash
 lsmod | grep br_netfilter
 lsmod | grep overlay
 ```
 
 10. ネットワークモジュールのパラメータ値確認
-値が'1'であることを確認する
+  値が'1'であることを確認する
 ```bash
 sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables net.ipv4.ip_forward
 ```
 
 11. コンテナランタイムのインストール
-cri-oを利用する
+  cri-oを利用する
 ```bash
 sudo dnf install cri-o containernetworking-plugins
 ```
