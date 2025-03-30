@@ -1,8 +1,9 @@
 ## kubernetesの構築メモ
 
-### 前提条件
-1. 利用OS：Fedora41
-2. シェル：zsh (or bash)
+### 利用ソフトウェア
+- HostOS：Fedora41
+- CRI：cri-o
+- CNI：cilium
 
 ---
 ### NetworkManagerのDNS設定が`/etc/resolve.conf`に反映されない問題の対処
@@ -233,13 +234,13 @@ sudo systemctl enable --now crio
 sudo systemctl enable --now kubelet
 ```
 
-15. kubernetesクラスタへの追加  
+15. kubernetesクラスタへのJoinコマンドを生成  
 マスターノード側で下記コマンドを実行する
 ```bash
 kubeadm token create --print-join-command
 ```
-出力されたコマンドをクラスタに追加したいワーカーノードで実行する. sudoコマンドを付ける
+16. 15で出力されたコマンドをクラスタに追加したいワーカーノードで実行する (sudoコマンドを付ける)
 ```bash
-(例) sudo kubeadm join <MaterNode IPaddr>:6443 --token <Token str> --discovery-token-ca-cert-hash <hash value>
+(例) sudo kubeadm join <MaterNode IPaddr>:6443 --token <TokenStr> --discovery-token-ca-cert-hash <HashValue>
 ```
 
