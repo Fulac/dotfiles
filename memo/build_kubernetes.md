@@ -67,9 +67,7 @@ EOF
 sudo sysctl --system
 ```
 
-9. overlay, br_netfileterが正常に読み込めていることを確認
-
-
+9. overlay, br_netfileterが正常に読み込めていることを確認  
 overlay, br_netfilterが表示さればOK
 ```bash
 lsmod | grep br_netfilter
@@ -83,7 +81,6 @@ sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables ne
 ```
 
 11. コンテナランタイムのインストール  
-cri-oを利用する
 ```bash
 sudo dnf install cri-o containernetworking-plugins
 ```
@@ -203,15 +200,15 @@ EOF
 sudo sysctl --system
 ```
 
-9. overlay, br_netfileterが正常に読み込めていることを確認
-<br>overlay, br_netfilterが表示さればOK
+9. overlay, br_netfileterが正常に読み込めていることを確認  
+overlay, br_netfilterが表示さればOK
 ```bash
 lsmod | grep br_netfilter
 lsmod | grep overlay
 ```
 
-10. ネットワークモジュールの状態確認
-<br>モジュールが有効状態「1」であることを確認する
+10. ネットワークモジュールの状態確認  
+モジュールが有効状態「1」であることを確認する
 ```bash
 sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables net.ipv4.ip_forward
 ```
@@ -236,12 +233,12 @@ sudo systemctl enable --now crio
 sudo systemctl enable --now kubelet
 ```
 
-15. kubernetesクラスタへの追加
+15. kubernetesクラスタへの追加  
 マスターノード側で下記コマンドを実行する
 ```bash
 kubeadm token create --print-join-command
 ```
-出力されたコマンドをクラスタに追加したいワーカーノードで実行する. sudoコマンドが必要？
+出力されたコマンドをクラスタに追加したいワーカーノードで実行する. sudoコマンドを付ける
 ```bash
 (例) sudo kubeadm join <MaterNode IPaddr>:6443 --token <Token str> --discovery-token-ca-cert-hash <hash value>
 ```
