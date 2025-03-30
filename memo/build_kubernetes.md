@@ -4,10 +4,8 @@
 1. 利用OS：Fedora41
 2. シェル：zsh (or bash)
 
-#### 参考
-[Fedora公式ドキュメント](https://docs.fedoraproject.org/en-US/quick-docs/using-kubernetes-kubeadm/)
-
 #### kubernetesのインストール（マスターノード）
+参考：[Fedora公式ドキュメント](https://docs.fedoraproject.org/en-US/quick-docs/using-kubernetes-kubeadm/)
 1. パッケージの最新化
 ```bash
 sudo dnf upgrade
@@ -58,20 +56,20 @@ sudo sysctl --system
 ```
 
 9. overlay, br_netfileterが正常に読み込めていることを確認
-  overlay, br_netfilterが表示さればOK
+<br>overlay, br_netfilterが表示さればOK
 ```bash
 lsmod | grep br_netfilter
 lsmod | grep overlay
 ```
 
 10. ネットワークモジュールのパラメータ値確認
-  値が'1'であることを確認する
+<br>値が'1'であることを確認する
 ```bash
 sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables net.ipv4.ip_forward
 ```
 
 11. コンテナランタイムのインストール
-  cri-oを利用する
+<br>cri-oを利用する
 ```bash
 sudo dnf install cri-o containernetworking-plugins
 ```
@@ -97,6 +95,7 @@ sudo systemctl enable --now kubelet
 ```
 
 16. kubernetesクラスタの初期化
+<br>CNIにciliumを利用するためkube-proxyの起動を抑止する
 ```bash
 sudo kubeadm init --skip-phases=addon/kube-proxy
 ```
@@ -106,4 +105,34 @@ sudo kubeadm init --skip-phases=addon/kube-proxy
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+
+#### Cilium(CNI)のインストールと起動
+参考：[cilium公式ドキュメント](https://docs.cilium.io/en/stable/gettingstarted/k8s-install-default/)
+1. cilium cliのインストール
+```bash
+CILIUM_CLI_VERSION=$(curl -s https://raw.githubusercontent.com/cilium/cilium-cli/main/stable.txt)
+CLI_ARCH=amd64
+if [ "$(uname -m)" = "aarch64" ]; then CLI_ARCH=arm64; fi
+curl -L --fail --remote-name-all https://github.com/cilium/cilium-cli/releases/download/${CILIUM_CLI_VERSION}/cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
+sha256sum --check cilium-linux-${CLI_ARCH}.tar.gz.sha256sum
+sudo tar xzvfC cilium-linux-${CLI_ARCH}.tar.gz /usr/local/bin
+rm cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
+```
+
+2. ciliumのインストール
+```bash
+cilium install --version 1.17.2
+```
+
+3. cilium起動状態の確認
+<br>Cilium, OperatorのステータスがOKとなるまで待機
+```bash
+cilium status --wait
+```
+
+4. hubbleの有効化
+<br>WorkerNodeをクラスタに追加するまでは正常起動しない
+```bash
+cilium hubble enable --ui
 ```
