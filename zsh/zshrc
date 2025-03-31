@@ -41,6 +41,7 @@ alias la="ls -lA --color=auto"
 alias cl="clear"
 alias df="df -h"
 alias du="du -h"
+alias ip="ip -color"
 alias -g @g='| grep'
 alias -g @f='| find'
 alias -g @l='| less'
