@@ -1,6 +1,5 @@
 ## polkitの許可設定メモ
 
----
 ### アクション
 - NetworkManager
 ```bash
