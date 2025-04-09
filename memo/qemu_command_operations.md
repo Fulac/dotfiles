@@ -9,7 +9,7 @@ sudo qm list
   VMID NAME                 STATUS     MEM(MB)    BOOTDISK(GB) PID
   1001 windows11            stopped    32768            480.00 0         
   4002 UbuntuServer         stopped    16384             32.00 0         
-  5001 master01-k8s         running    8192              32.00 2202
+  9990 FedoraServer         running    16384            256.00 2250
 ```
 
 2. 仮想マシン情報を確認する
@@ -53,7 +53,7 @@ sudo lvdisplay | grep 4002
 sudo qemu-img convert -O qcow2 /dev/local-lvm/vm-3002-disk-1 ~/ubuntuserver.qcow2  
 ```
 ```bash
-qemu-img convert [-O output_format] <input_image_file> <output_image_file>
+Usage: qemu-img convert [-O output_format] <input_image_file> <output_image_file>
 ```
 
 ---
@@ -71,13 +71,13 @@ scpコマンド等を使ってイメージファイルをproxmoxに転送する
 sudo qm importdisk 101 ubuntuserver.qcow2 local-lvm
 ```
 ```bash
-qm importdisk <VMID> <input_image_file> <論理ボリューム名>
+Usage: qm importdisk <VMID> <input_image_file> <論理ボリューム名>
 ```
 
-4. インポートしたディスクの有効化
+4. インポートしたディスクの有効化  
 ブラウザから仮想マシンを選択し、「ハードウェア」->「未使用のディスク」->「編集」->「OK」を押下しディスクを有効化する
 
-5. 起動順序設定
-ブラウザから仮想マシンを選択し、「オプション」->「ブート順」->「編集」を押下し有効化したディスクの起動順序が1番となるように順序を変更する
+5. 起動順序設定  
+ブラウザから仮想マシンを選択し、「オプション」->「ブート順」->「編集」を押下し有効化したディスクの起動順が1番となるように順序を変更する
 
 ---
