@@ -45,6 +45,7 @@ alias ip="ip -color"
 alias -g @g='| grep'
 alias -g @f='| find'
 alias -g @l='| less'
+alias clab="sudo containerlab"
 
 # --------------------------------------------
 # PATH設定
@@ -53,13 +54,19 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 
 # anyenv
 if [[ -d "${HOME}/.anyenv" ]]; then
-    export ANYENV_ROOT="${HOME}/.anyenv"
-    export PATH="${ANYENV_ROOT}/bin:${PATH}"
-    eval "$(anyenv init -)"
+  export ANYENV_ROOT="${HOME}/.anyenv"
+  export PATH="${ANYENV_ROOT}/bin:${PATH}"
+  eval "$(anyenv init -)"
 fi
 
+# Deno
 if [[ -d "${HOME}/.deno" ]]; then
-    export PATH="${HOME}/.deno/bin:${PATH}"
+  export PATH="${HOME}/.deno/bin:${PATH}"
+fi
+
+# CUDA
+if [[ -d "/opt/cuda" ]]; then
+  export PATH="/opt/cuda/bin:${PATH}"
 fi
 
 # --------------------------------------------
@@ -205,6 +212,11 @@ fi
 # kubectlの補完設定
 if type kubectl > /dev/null 2>&1; then
   source <(kubectl completion zsh)
+fi
+
+# containerlabの補完設定
+if type containerlab > /dev/null 2>&1; then
+  source <(containerlab completion zsh)
 fi
 
 # --------------------------------------------
