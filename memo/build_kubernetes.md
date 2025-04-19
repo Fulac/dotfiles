@@ -1,7 +1,7 @@
 ## kubernetesの構築メモ
 
 ### 利用ソフトウェア
-- HostOS：Fedora41
+- HostOS：Fedora42
 - CRI：cri-o
 - CNI：cilium
 
@@ -83,7 +83,7 @@ sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables ne
 
 11. コンテナランタイムのインストール  
 ```bash
-sudo dnf install cri-o containernetworking-plugins
+sudo dnf install cri-o crun containernetworking-plugins
 ```
 
 12. kubernetesのインストール
@@ -216,7 +216,7 @@ sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables ne
 
 11. コンテナランタイムのインストール
 ```bash
-sudo dnf install cri-o containernetworking-plugins
+sudo dnf install cri-o crun containernetworking-plugins
 ```
 
 12. kubernetesのインストール
