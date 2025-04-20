@@ -87,7 +87,7 @@ ping archlinux.org
 ```
 
 - リポジトリの選択  
-日本のリポジトリを有線するために`/etc/pacman.d/mirrorlist`に以下の文を上に追記する
+日本のリポジトリを優先するために`/etc/pacman.d/mirrorlist`に以下の文を上に追記する
 ```bash
 Server = http://ftp.tsukuba.wide.ad.jp/Linux/archlinux/$repo/os/$arch
 ```
