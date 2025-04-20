@@ -27,7 +27,7 @@ sgdisk -z /dev/sda
 ```bash
 sgdisk -n 1:0:+1G -t 1:ef00 -c 1:"EFI-System" /dev/nvme0n1
 ```
-- /用パーティションの作成
+- ルートディレクトリ用パーティションの作成
 ```bash
 sgdisk -n 2:0: -t 2:8300 -c 2:"ARCH-ROOT" /dev/nvme0n1
 ```
@@ -92,7 +92,7 @@ ping archlinux.org
 Server = http://ftp.tsukuba.wide.ad.jp/Linux/archlinux/$repo/os/$arch
 ```
 
-- パッケージのインストール
+- パッケージのインストール  
 intel-cpuの場合は`intel-ucode`、amd-cpuの場合は`amd-ucode`をインストールする
 ```bash
 pacstrap /mnt base base-devel linux linux-headers linux-firmware intel-ucode dosfstools efibootmgr vi vim wpa_supplicant networkmanager dialog
