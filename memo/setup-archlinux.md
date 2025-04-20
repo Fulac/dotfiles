@@ -103,7 +103,7 @@ pacstrap /mnt base base-devel linux linux-headers linux-firmware intel-ucode dos
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
-- chroot
+- chroot  
 `arch-chroot`コマンドでrootの作業場所を変更する
 ```bash
 arch-chroot /mnt
@@ -169,7 +169,7 @@ passwd
 ```
 
 ## BootLoaderの設定
-### PT-1: systemd-bootを利用
+### PT-1: systemd-bootを利用する場合
 - systemd-bootをインストールする
 ```bash
 bootctl install
@@ -221,7 +221,7 @@ initrd  /intel-ucode.img (または /amd-ucode.img)
 options root=UUID=</(root)ディレクトリのUUID> rw rootflags=subvol=/
 ```
 
-### PT-2: GRUB2を利用
+### PT-2: GRUB2を利用する場合
 - grubをインストール
 ```bash
 pacman -S grub
@@ -238,7 +238,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ## Boot設定の確認
 `efibootmgr`コマンドでブート設定が反映されていることを確認する
 ```bash
-# systemd-bootの出力例
+# systemd-bootを利用した場合の出力例
 BootCurrent: 0001
 Timeout: 0 seconds
 BootOrder: 0001
@@ -246,8 +246,8 @@ Boot0001* UEFI OS       HD(1,GPT,225ca0b6-58bb-49a4-aee0-1bce7a0f8762,0x800,0x10
 ```
 上記のような表示がされていれば恐らくOK
 
-## rootのパスワード設定
-`passwd`コマンドにてrootのパスワードを設定する
+## rootユーザのパスワード設定
+`passwd`コマンドにて`root`ユーザのパスワードを設定する
 ```bash
 passwd
 ```
@@ -263,7 +263,7 @@ shutdown -h now
 以降`root`ユーザにログインして設定を行う
 
 ## ユーザの作成
-`wheel`グループに追加する
+ユーザ作成時に`wheel`グループに追加する場合は`-G wheel`を記載する
 ```bash
 useradd -m <ユーザ名> -G wheel
 passwd <ユーザ名>
@@ -275,7 +275,7 @@ passwd <ユーザ名>
 pacman -S sudo
 ```
 
-- `wheel`グループに属するユーザに`sudo`実行権限を付与
+- `wheel`グループに属するユーザに`sudo`実行権限を付与  
 `visudo`コマンドを利用して以下をコメントアウトする
 ```bash
 ## Uncomment to allow members of group wheel to execute any command
@@ -320,7 +320,7 @@ XMODIFIERS=@im=fcitx
 ```
 
 ## pacmanの設定
-- カラー設定、並列ダウンロード
+- カラー設定、並列ダウンロード  
 `/etc/pacman.conf`の以下の項をアンコメントする
 ```bash
 (省略)
@@ -330,9 +330,9 @@ ParallelDownloads = 5
 (省略)
 ```
 
-- Multilibの有効化
+- Multilibの有効化  
 Multilibを有効化することで32bitアプリケーションの使用が可能となる  
-`/etc/pacman.conf`の`[multilib]`の項をアンコメントする  
+`/etc/pacman.conf`の`[multilib]`の項をアンコメントする
 ```bash
 (省略)
 [multilib]
@@ -340,7 +340,7 @@ Include = /etc/pacman.d/mirrorlist
 (省略)
 ```
 
-- 自動キャッシュ削除
+- 自動キャッシュ削除  
 `paccache.timer`を有効化する
 ```bash
 sudo systemcts enable --now paccache.timer
