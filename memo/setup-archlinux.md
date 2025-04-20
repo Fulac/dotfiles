@@ -1,4 +1,4 @@
-## Arch Linuxのインストール手順
+# Arch Linuxのインストール手順
 
 ## キーボードレイアウト
 【英字キーボードの場合は不要】日本語キーボード配列を切り替える
@@ -7,10 +7,11 @@ loadkeys jp106
 ```
 
 ## 起動モードの確認
-本手順はUEFIの使用が前提
+本手順は起動モードがUEFIであることを前提とする
 ```bash
 ls /sys/firmware/efi
 ```
+実行結果に`efivars`というディレクトリがあればOK
 
 ## パーティションの作成
 ここでは以下のパーティション構成とする
@@ -94,7 +95,7 @@ Server = http://ftp.tsukuba.wide.ad.jp/Linux/archlinux/$repo/os/$arch
 - パッケージのインストール
 intel-cpuの場合は`intel-ucode`、amd-cpuの場合は`amd-ucode`をインストールする
 ```bash
-pacstrap /mnt base base-devel linux linux-headers linux-firmware intel-ucode dosfstools efibootmgr vim wpa_supplicant networkmanager dialog
+pacstrap /mnt base base-devel linux linux-headers linux-firmware intel-ucode dosfstools efibootmgr vi vim wpa_supplicant networkmanager dialog
 ```
 
 - fstabの作成
@@ -168,8 +169,8 @@ passwd
 ```
 
 ## BootLoaderの設定
-# PT-1: systemd-bootを利用
-- systemd-bootのEFIブートマネージャをインストールする
+### PT-1: systemd-bootを利用
+- systemd-bootをインストールする
 ```bash
 bootctl install
 ```
@@ -220,4 +221,127 @@ initrd  /intel-ucode.img (または /amd-ucode.img)
 options root=UUID=</(root)ディレクトリのUUID> rw rootflags=subvol=/
 ```
 
-# PT-2: GRUB2を利用
+### PT-2: GRUB2を利用
+- grubをインストール
+```bash
+pacman -S grub
+```
+
+- grubの設定
+```bash
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=arch --recheck
+```
+```bash
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+## Boot設定の確認
+`efibootmgr`コマンドでブート設定が反映されていることを確認する
+```bash
+# systemd-bootの出力例
+BootCurrent: 0001
+Timeout: 0 seconds
+BootOrder: 0001
+Boot0001* UEFI OS       HD(1,GPT,225ca0b6-58bb-49a4-aee0-1bce7a0f8762,0x800,0x100000)/\EFI\BOOT\BOOTX64.EFI0000424f
+```
+上記のような表示がされていれば恐らくOK
+
+## rootのパスワード設定
+`passwd`コマンドにてrootのパスワードを設定する
+```bash
+passwd
+```
+
+## システム再起動
+以下のコマンドを実行後、インストールメディアを抜いて正常に起動するか確認する
+```bash
+exit
+shutdown -h now
+```
+
+# インストール後のセットアップ
+以降`root`ユーザにログインして設定を行う
+
+## ユーザの作成
+`wheel`グループに追加する
+```bash
+useradd -m <ユーザ名> -G wheel
+passwd <ユーザ名>
+```
+
+## sudo設定
+- `sudo`パッケージのインストール
+```bash
+pacman -S sudo
+```
+
+- `wheel`グループに属するユーザに`sudo`実行権限を付与
+`visudo`コマンドを利用して以下をコメントアウトする
+```bash
+## Uncomment to allow members of group wheel to execute any command
+%wheel ALL=(ALL:ALL) ALL <-- Uncomment
+```
+
+## ユーザの切り替え
+`exit`をして`root`ユーザから作成したユーザに切り替える
+
+## AURヘルパーのインストール
+`yay`をインストールする。`root`ユーザでは利用できないため先ほど作成したユーザに切り替えてから実行する
+```bash
+sudo pacman -S git go
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+```
+`make`後は`git clone`した`yay`ディレクトリを削除して問題ない
+
+## GUI環境のインストール
+KDE Plasmaを利用する
+```bash
+sudo pacman -S acpid sddm plasma konsole dolphin
+sudo systemctl enable sddm
+```
+
+## 日本語設定
+- 日本語フォントのインストール
+```bash
+sudo pacman -S noto-fonts-cjk
+```
+
+- 日本語インプットメソッドのインストール
+```bash
+sudo pacman -S fcitx5 fcitx5-mozc fcitx5-configtool
+```
+
+- 環境設定
+`/etc/environment`に以下の設定を記載する
+```bash
+XMODIFIERS=@im=fcitx
+```
+
+## pacmanの設定
+- カラー設定、並列ダウンロード
+`/etc/pacman.conf`の以下の項をアンコメントする
+```bash
+(省略)
+Color
+(省略)
+ParallelDownloads = 5
+(省略)
+```
+
+- Multilibの有効化
+Multilibを有効化することで32bitアプリケーションの使用が可能となる  
+`/etc/pacman.conf`の`[multilib]`の項をアンコメントする  
+```bash
+(省略)
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+(省略)
+```
+
+- 自動キャッシュ削除
+`paccache.timer`を有効化する
+```bash
+sudo systemcts enable --now paccache.timer
+```
