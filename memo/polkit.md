@@ -3,7 +3,7 @@
 ### アクション
 - NetworkManager
 ```bash
-org.freedesktop.NetworkManager.policy
+org.freedesktop.NetworkManager.network-control
 ```
 
 ---
@@ -15,7 +15,7 @@ Arch Linuxの場合、ローカル設定は`/etc/polkit-1/rules.d`に記載す�
 - NetworkManagerアクションの使用を全ユーザに許可する
 ```bash
 polkit.addRule(function(action, subject) {
-    if (action.id == "org.freedesktop.NetworkManager.policy") {
+    if (action.id == "org.freedesktop.NetworkManager.network-control") {
         return polkit.Result.YES;
     }
 });
