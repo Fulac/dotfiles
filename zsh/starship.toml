@@ -122,11 +122,11 @@ style = "fg:#3f3f3f bg:none"
 #############################################################################################
 
 [hostname]
-style = "bold fg:#000000 bg:#bcbcff"
+style = "bold fg:#000000 bg:#d1d1ff"
 format = """
-[](fg:#bcbcff bg:none)\
-[ $hostname ]($style)\
-[▓▒░](fg:#bcbcff bg:none)\
+[](fg:#d1d1ff bg:none)\
+[ $hostname]($style)\
+[▓▒░ ](fg:#d1d1ff bg:none)\
 """
 
 #############################################################################################
