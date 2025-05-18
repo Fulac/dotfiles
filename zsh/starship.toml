@@ -125,8 +125,8 @@ style = "fg:#3f3f3f bg:none"
 style = "bold fg:#000000 bg:#bcbcff"
 format = """
 [](fg:#bcbcff bg:none)\
-[$hostname]($style)\
-[░▒▓](fg:#bcbcff bg:none)\
+[ $hostname ]($style)\
+[▓▒░](fg:#bcbcff bg:none)\
 """
 
 #############################################################################################
