@@ -9,6 +9,7 @@ $directory\
 $git_branch\
 $git_status\
 $fill\
+$hostname\
 $line_break$character
 """
 
@@ -32,7 +33,7 @@ color_yellow = '#d79921'
 
 [os]
 disabled = false
-style = "bg:#f1f1f1 fg:#000000"
+style = "fg:#000000 bg:#f1f1f1"
 format = """
 [░▒▓](#f1f1f1)\
 [$symbol]($style)\
@@ -60,7 +61,7 @@ Pop = " "
 #############################################################################################
 
 [username]
-style_root = "bold bg:#ff7f7f fg:#000000"
+style_root = "bold fg:#000000 bg:#f1f1f1"
 format = '[ $user ]($style_root)'
 
 #############################################################################################
@@ -118,6 +119,18 @@ symbol = " "
 style = "fg:#3f3f3f bg:none"
 
 #############################################################################################
+
+[hostname]
+ssh_symbol = "\ue8b1"
+style = "bold fg:#000000 bg:#8e8eff"
+format = """
+[](fg:#8e8eff bg:none)\
+[$ssh_symbol](bold #000000) on [$hostname](style)
+[](fg:#8e8eff bg:none)\
+"""
+
+#############################################################################################
+
 [character]
 success_symbol = "[❯](bold #99ff33)[❯](bold #33ff33)[❯](bold #00cc33)"
 error_symbol = "[❯](bold #89dceb)[❯](bold #f38ba8)[❯](bold #f17497)"

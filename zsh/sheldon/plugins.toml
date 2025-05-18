@@ -1,0 +1,66 @@
+# `sheldon` configuration file
+# ----------------------------
+#
+# You can modify this file directly or you can use one of the following
+# `sheldon` commands which are provided to assist in editing the config file:
+#
+# - `sheldon add` to add a new plugin to the config file
+# - `sheldon edit` to open up the config file in the default editor
+# - `sheldon remove` to remove a plugin from the config file
+#
+# See the documentation for more https://github.com/rossmacarthur/sheldon#readme
+
+shell = "zsh"
+
+[plugins]
+
+# zsh-defer should be defined first,
+# since sheldon loads plugins in the order they are defined
+# https://sheldon.cli.rs/Examples.html#deferred-loading-of-plugins-in-zsh
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+apply = ["defer"]
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+use = ["{{ name }}.zsh"]
+apply = ["defer"]
+
+[plugins.zsh-autosuggestions.hooks]
+post = """
+  bindkey '^f' autosuggest-accept
+"""
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+
+[plugins.zsh-syntax-highlighting.hooks]
+post = """
+  ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+  # Declare the variable
+  typeset -A ZSH_HIGHLIGHT_STYLES
+  ZSH_HIGHLIGHT_STYLES[default]='fg=111'
+  ZSH_HIGHLIGHT_STYLES[arg0]='fg=118'
+  ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=118,underline'
+  ZSH_HIGHLIGHT_STYLES[precommand]='fg=118,underline'
+  ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=118,underline'
+  ZSH_HIGHLIGHT_STYLES[path]='fg=111,underline'
+  ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=111'
+  ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=111'
+  ZSH_HIGHLIGHT_STYLES[globbing]='fg=177'
+  ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=214'
+  ZSH_HIGHLIGHT_STYLES[redirection]='fg=219'
+  ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=228'
+  ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=228'
+  ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=228'
+  ZSH_HIGHLIGHT_STYLES[rc-quote]='fg=219'
+  ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=219'
+  ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]='fg=219'
+  ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]='fg=219'
+"""
+
+[templates]
+defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
