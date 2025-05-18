@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-${HOME}/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-${HOME}/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # --------------------------------------------
 # General Settings
 # --------------------------------------------
@@ -52,6 +45,11 @@ alias clab="sudo containerlab"
 # --------------------------------------------
 export XDG_CONFIG_HOME="${HOME}/.config"
 
+# Cargo
+if type cargo > /dev/null 2>&1; then
+  export PATH="${HOME}/.cargo/bin:${PATH}"
+fi
+
 # anyenv
 if [[ -d "${HOME}/.anyenv" ]]; then
   export ANYENV_ROOT="${HOME}/.anyenv"
@@ -70,57 +68,13 @@ if [[ -d "/opt/cuda" ]]; then
 fi
 
 # --------------------------------------------
-# zinit (プラグインマネージャ) !!プラグイン読込を優先して実行!!
+# sheldon（プラグインマネージャ）
 # --------------------------------------------
-if [[ ! -f ${HOME}/.zinit/bin/zinit.zsh ]]; then
-  command mkdir -p "${HOME}/.zinit" && command chmod g-rwX "${HOME}/.zinit"
-  command git clone https://github.com/zdharma-continuum/zinit "${HOME}/.zinit/bin"
+if [[ ! -f ${HOME}/.cargo/bin/sheldon ]]; then
+  command cargo install sheldon
 fi
 
-source "${HOME}/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-# plugin list
-zinit ice wait lucid; zinit light zsh-users/zsh-completions
-zinit ice wait lucid; zinit light zsh-users/zsh-autosuggestions
-zinit ice wait lucid; zinit light zsh-users/zsh-syntax-highlighting
-zinit ice depth="1";  zinit light romkatv/powerlevel10k
-zinit ice wait lucid; zinit load zdharma-continuum/history-search-multi-word
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ${HOME}/dotfiles/zsh/p10k.zsh ]] || source ${HOME}/dotfiles/zsh/p10k.zsh
-
-# --------------------------------------------
-# zsh-autosuggestions
-# --------------------------------------------
-# Ctrl+fで過去のコマンドを入力
-bindkey '^f' autosuggest-accept
-
-# --------------------------------------------
-# zsh-syntax-highlighting
-# --------------------------------------------
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
-# Declare the variable
-typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[default]='fg=111'
-ZSH_HIGHLIGHT_STYLES[arg0]='fg=118'
-ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=118,underline'
-ZSH_HIGHLIGHT_STYLES[precommand]='fg=118,underline'
-ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=118,underline'
-ZSH_HIGHLIGHT_STYLES[path]='fg=111,underline'
-ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=111'
-ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=111'
-ZSH_HIGHLIGHT_STYLES[globbing]='fg=177'
-ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=214'
-ZSH_HIGHLIGHT_STYLES[redirection]='fg=219'
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=228'
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=228'
-ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=228'
-ZSH_HIGHLIGHT_STYLES[rc-quote]='fg=219'
-ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=219'
-ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]='fg=219'
-ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]='fg=219'
+eval "$(sheldon source)"
 
 # --------------------------------------------
 # History
@@ -234,3 +188,11 @@ setopt extended_glob
 # ファイルグロブで大文字小文字を区別しない
 unsetopt caseglob
 
+# --------------------------------------------
+# Starship（プロンプト）
+# --------------------------------------------
+if ! type starship > /dev/null 2>&1; then
+  echo "Please install Starship."
+fi
+export STARSHIP_CONFIG="${HOME}/dotfiles/zsh/starship.toml"
+eval "$(starship init zsh)"
