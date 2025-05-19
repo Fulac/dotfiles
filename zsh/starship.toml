@@ -63,7 +63,7 @@ Pop = " "
 
 [username]
 style_user = "bold fg:#000000 bg:#f1f1f1"
-style_root = "bold fg:#eb4646 bg:#f1f1f1"
+style_root = "bold fg:#ff0000 bg:#f1f1f1"
 format = '[ $user ]($style)'
 
 #############################################################################################
@@ -134,5 +134,5 @@ format = """
 
 [character]
 success_symbol = "[❯](bold #99ff33)[❯](bold #33ff33)[❯](bold #00cc33)"
-error_symbol = "[❯](bold #191970)[❯](bold #f38ba8)[❯](bold #f17497)"
+error_symbol = "[❯](bold #eba0ac)[❯](bold #f38ba8)[❯](bold #f17497)"
 vimcmd_symbol = "[❮](bold #99ff33)[❮](bold #33ff33)[❮](bold #00cc33)"
