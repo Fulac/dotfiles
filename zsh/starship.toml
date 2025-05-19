@@ -10,6 +10,7 @@ $git_branch\
 $git_status\
 $fill\
 $hostname\
+$localip\
 $line_break$character
 """
 
@@ -89,14 +90,14 @@ format = """
 symbol = "    "
 truncation_length = 20
 truncation_symbol = ""
-style = "bold fg:#89dceb bg:#45475a"
+style = "fg:#5ea4eb bg:#2e2930"
 format = """
-[](fg:#45475a bg:none)\
+[](fg:#2e2930 bg:none)\
 [$symbol$branch(:$remote_branch) ]($style)\
 """
 
 [git_status]
-style = 'bold fg:#eba0ac bg:#45475a'
+style = 'bold fg:#eb4646 bg:#2e2930'
 conflicted = '='
 ahead = '⇡${count}'
 behind = '⇣${count}'
@@ -108,9 +109,9 @@ modified = '!${count}'
 renamed = '»'
 deleted = '✘'
 format = """
-[ 󱪙 ](fg:#89dceb bg:#45475a)\
+[ 󱪙 ](fg:#5ea4eb bg:#2e2930)\
 [$all_status$ahead_behind ]($style)\
-[](fg:#45475a bg:none)\
+[](fg:#2e2930 bg:none)\
 """
 
 #############################################################################################
@@ -122,16 +123,16 @@ style = "fg:#3f3f3f bg:none"
 #############################################################################################
 
 [hostname]
-style = "bold fg:#000000 bg:#d1d1ff"
+style = "fg:#000000 bg:#c1c1ff"
 format = """
-[](fg:#d1d1ff bg:none)\
-[ $hostname]($style)\
-[▓▒░ ](fg:#d1d1ff bg:none)\
+[░▒▓](fg:#c1c1ff bg:none)\
+[ $hostname ]($style)\
+[▓▒░ ](fg:#c1c1ff bg:none)\
 """
 
 #############################################################################################
 
 [character]
 success_symbol = "[❯](bold #99ff33)[❯](bold #33ff33)[❯](bold #00cc33)"
-error_symbol = "[❯](bold #89dceb)[❯](bold #f38ba8)[❯](bold #f17497)"
+error_symbol = "[❯](bold #191970)[❯](bold #f38ba8)[❯](bold #f17497)"
 vimcmd_symbol = "[❮](bold #99ff33)[❮](bold #33ff33)[❮](bold #00cc33)"
