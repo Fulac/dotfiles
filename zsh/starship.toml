@@ -63,7 +63,7 @@ Pop = " "
 
 [username]
 style_user = "bold fg:#000000 bg:#f1f1f1"
-style_root = "bold fg:#000000 bg:#ff7f7f"
+style_root = "bold fg:#eb4646 bg:#f1f1f1"
 format = '[ $user ]($style)'
 
 #############################################################################################
