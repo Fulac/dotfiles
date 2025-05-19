@@ -41,30 +41,30 @@ format = """
 """
 
 [os.symbols]
-Windows = " 󰖳 "
-Ubuntu = " 󰕈 "
-SUSE = "  "
-Mint = " 󰣭 "
-Macos = " 󰀵 "
-Manjaro = "  "
-Fedora = " 󰣛 "
-AlmaLinux = "  "
-Amazon = "  "
-Android = "  "
-Arch = " 󰣇 "
-EndeavourOS = "  "
-CentOS = "  "
-Debian = " 󰣚 "
-Redhat = " 󱄛 "
-RedHatEnterprise = " 󱄛 "
-Pop = "  "
+Windows = " 󰖳  "
+Ubuntu = " 󰕈  "
+SUSE = "   "
+Mint = " 󰣭  "
+Macos = " 󰀵  "
+Manjaro = "   "
+Fedora = " 󰣛  "
+AlmaLinux = "   "
+Amazon = "   "
+Android = "   "
+Arch = " 󰣇  "
+EndeavourOS = "   "
+CentOS = "   "
+Debian = " 󰣚  "
+Redhat = " 󱄛  "
+RedHatEnterprise = " 󱄛  "
+Pop = "   "
 
 #############################################################################################
 
 [username]
 style_user = "bold fg:#000000 bg:#f1f1f1"
 style_root = "bold fg:#ff0000 bg:#f1f1f1"
-format = '[ $user ]($style)'
+format = '[$user ]($style)'
 
 #############################################################################################
 
