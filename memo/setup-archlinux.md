@@ -269,6 +269,12 @@ useradd -m <ユーザ名> -G wheel
 passwd <ユーザ名>
 ```
 
+## ネットワークの有効化
+NetworkManager.serviceを起動する
+```bash
+systemctl enable --now NetworkManager
+```
+
 ## sudo設定
 - `sudo`パッケージのインストール
 ```bash
@@ -305,7 +311,7 @@ sudo systemctl enable sddm
 ## 日本語設定
 - 日本語フォントのインストール
 ```bash
-sudo pacman -S noto-fonts-cjk
+sudo pacman -S noto-fonts-cjk ttf-bizin-gothic
 ```
 
 - 日本語インプットメソッドのインストール
@@ -340,7 +346,21 @@ Include = /etc/pacman.d/mirrorlist
 (省略)
 ```
 
+- Mirrorlistの最適化
+`reflector`のインストール
+```bash
+sudo pacman -S reflector
+```
+24時間以内に同期が行われた日本のhttpsサーバをMirrorlistに保存する
+```bash
+sudo reflector --country 'Japan' --age 24 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+```
+
 - 自動キャッシュ削除  
+`pacman-contrib`をインストールする
+```bash
+sudo pacman -S pacman-contrib
+```
 `paccache.timer`を有効化する
 ```bash
 sudo systemcts enable --now paccache.timer
