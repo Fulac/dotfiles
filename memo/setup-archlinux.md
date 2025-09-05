@@ -38,6 +38,13 @@ mkfs.vfat -F32 /dev/nvme0n1p1
 mkfs.btrfs /dev/nvme0n1p2
 ```
 
+## パーティションのマウント
+```bash
+mount /dev/nvme0n1p1 /mnt
+mkdir /mnt/boot
+mount /dev/nvme0n1p2 /mnt/boot
+```
+
 ## 【有線LAN接続の場合は不要】無線LAN接続
 - 利用可能な無線インターフェースリストを取得する
 ```bash
