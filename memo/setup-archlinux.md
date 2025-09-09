@@ -253,11 +253,6 @@ Boot0001* UEFI OS       HD(1,GPT,225ca0b6-58bb-49a4-aee0-1bce7a0f8762,0x800,0x10
 ```
 上記のような表示がされていれば恐らくOK
 
-## rootユーザのパスワード設定
-`passwd`コマンドにて`root`ユーザのパスワードを設定する
-```bash
-passwd
-```
 
 ## システム再起動
 以下のコマンドを実行後、インストールメディアを抜いて正常に起動するか確認する
@@ -295,49 +290,14 @@ pacman -S sudo
 %wheel ALL=(ALL:ALL) ALL <-- Uncomment
 ```
 
-## ユーザの切り替え
-`exit`をして`root`ユーザから作成したユーザに切り替える
-
-## AURヘルパーのインストール
-`yay`をインストールする。`root`ユーザでは利用できないため先ほど作成したユーザに切り替えてから実行する
-```bash
-sudo pacman -S git go
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-```
-`make`後は`git clone`した`yay`ディレクトリを削除して問題ない
-
-## GUI環境のインストール
-KDE Plasmaを利用する
-```bash
-sudo pacman -S acpid sddm plasma konsole dolphin
-sudo systemctl enable sddm
-```
-
-## 日本語設定
-- 日本語フォントのインストール
-```bash
-sudo pacman -S noto-fonts-cjk ttf-bizin-gothic
-```
-
-- 日本語インプットメソッドのインストール
-```bash
-sudo pacman -S fcitx5 fcitx5-mozc fcitx5-configtool
-```
-
-- 環境設定
-`/etc/environment`に以下の設定を記載する
-```bash
-XMODIFIERS=@im=fcitx
-```
-
 ## pacmanの設定
 - カラー設定、並列ダウンロード  
 `/etc/pacman.conf`の以下の項をアンコメントする
 ```bash
 (省略)
 Color
+(省略)
+VerbosePkgLists
 (省略)
 ParallelDownloads = 5
 (省略)
@@ -356,19 +316,57 @@ Include = /etc/pacman.d/mirrorlist
 - Mirrorlistの最適化
 `reflector`のインストール
 ```bash
-sudo pacman -S reflector
+pacman -S reflector
 ```
 24時間以内に同期が行われた日本のhttpsサーバをMirrorlistに保存する
 ```bash
-sudo reflector --country 'Japan' --age 24 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+reflector --country 'Japan' --age 24 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 ```
 
 - 自動キャッシュ削除  
 `pacman-contrib`をインストールする
 ```bash
-sudo pacman -S pacman-contrib
+pacman -S pacman-contrib
 ```
 `paccache.timer`を有効化する
 ```bash
-sudo systemcts enable --now paccache.timer
+systemcts enable --now paccache.timer
 ```
+
+## ユーザの切り替え
+`exit`をして`root`ユーザから作成したユーザに切り替える
+
+## AURヘルパーのインストール
+`yay`をインストールする。`root`ユーザでは利用できないため先ほど作成したユーザに切り替えてから実行する
+```bash
+sudo pacman -S git go
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+```
+`make`後は`git clone`した`yay`ディレクトリを削除して問題ない
+
+## GUI環境のインストール
+KDE Plasmaを利用する
+```bash
+yay -S acpid sddm plasma konsole dolphin
+sudo systemctl enable sddm
+```
+
+## 日本語設定
+- 日本語フォントのインストール
+```bash
+yay -S noto-fonts-cjk ttf-bizin-gothic
+```
+
+- 日本語インプットメソッドのインストール
+```bash
+yay -S fcitx5 fcitx5-mozc fcitx5-configtool
+```
+
+- 環境設定
+`/etc/environment`に以下の設定を記載する
+```bash
+XMODIFIERS=@im=fcitx
+```
+
