@@ -169,9 +169,9 @@ if type kubectl > /dev/null 2>&1; then
 fi
 
 # containerlabの補完設定
-#if type containerlab > /dev/null 2>&1; then
-#  source <(containerlab completion zsh)
-#fi
+if type containerlab > /dev/null 2>&1; then
+  source <(containerlab completion zsh)
+fi
 
 # uvの補完設定
 if type uv > /dev/null 2>&1; then
