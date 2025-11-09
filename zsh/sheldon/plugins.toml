@@ -32,6 +32,7 @@ apply = ["defer"]
 [plugins.zsh-autosuggestions.hooks]
 post = """
   bindkey '^f' autosuggest-accept
+  ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#767676,underline"
 """
 
 [plugins.zsh-syntax-highlighting]
