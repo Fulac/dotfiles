@@ -1,0 +1,95 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$os\
+$username\
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$hostname\
+$localip\
+$line_break$character
+"""
+
+palette = 'color'
+
+[palettes.color]
+color_fg0 = '#fbf1c7'
+color_blue = '#458588'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
+color_gray = '#a89984'
+
+[os]
+disabled = false
+style = "bold fg:color_gray"
+# アイコンの代わりにOS名を短縮表示
+format = "[$symbol]($style) "
+
+[os.symbols]
+Windows = "Win"
+Ubuntu = "Ubu"
+SUSE = "SUS"
+Mint = "Min"
+Macos = "Mac"
+Manjaro = "Man"
+Fedora = "Fed"
+AlmaLinux = "Alm"
+Amazon = "Amz"
+Android = "And"
+Arch = "Arc"
+CentOS = "Cen"
+Debian = "Deb"
+Redhat = "Rhl"
+
+[username]
+show_always = true
+style_user = "bold fg:color_orange"
+style_root = "bold fg:color_red"
+format = "[$user]($style) "
+
+[directory]
+truncation_length = 5
+truncation_symbol = ".../"
+home_symbol = "~"
+read_only = " [RO]"
+style = "bold fg:color_aqua"
+format = "at [$path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+symbol = "git:"
+style = "bold fg:color_purple"
+format = "| [$symbol$branch(:$remote_branch)]($style) "
+
+[git_status]
+style = "bold fg:color_red"
+conflicted = "="
+ahead = ">"
+behind = "<"
+diverged = "<>"
+up_to_date = "ok"
+untracked = "?"
+stashed = "$"
+modified = "!"
+renamed = ">>"
+deleted = "x"
+format = "([$all_status$ahead_behind]($style)) "
+
+[fill]
+symbol = " "
+
+[hostname]
+ssh_only = false
+style = "bold fg:color_yellow"
+# セパレーターとしてパイプを使用
+format = "| [$hostname]($style) "
+
+[character]
+success_symbol = "[>>>](bold color_green)"
+error_symbol = "[>>>](bold color_red)"
+vimcmd_symbol = "[<<<](bold color_blue)"
