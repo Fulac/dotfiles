@@ -79,7 +79,7 @@ style = "bg:bg_host fg:fg_dark bold"
 format = "[ $hostname ]($style)"
 
 [character]
-success_symbol = "[ >>> ](bold color_green)"
-error_symbol = "[ >>> ](bold color_red)"
-vimcmd_symbol = "[ <<< ](bold color_blue)"
+success_symbol = "[>>>](bold color_green)"
+error_symbol = "[>>>](bold color_red)"
+vimcmd_symbol = "[<<<](bold color_blue)"
 
