@@ -8,28 +8,28 @@ $git_branch\
 $git_status\
 $fill\
 $hostname\
-$localip\
 $line_break$character
 """
 
 palette = 'color'
 
 [palettes.color]
-color_fg0 = '#fbf1c7'
-color_blue = '#458588'
-color_aqua = '#689d6a'
-color_green = '#98971a'
-color_orange = '#d65d0e'
-color_purple = '#b16286'
-color_red = '#cc241d'
-color_yellow = '#d79921'
-color_gray = '#a89984'
+# 背景色を限界まで暗く設定
+bg_dark     = '#1d2021'  # OS, Hostname用
+bg_path     = '#9ACD32'  # ディレクトリ用
+bg_git      = '#2e2930'  # Git用
+bg_host     = '#C1C1FF'
+fg_main     = '#fbf1c7'  # 明るいクリーム色の文字
+fg_dark     = '#1d2021'
+fg_git      = '#5EA4EB'
+color_red   = '#fb4934'  # エラー・警告用
+color_green = '#b8bb26'  # 成功シンボル用
+color_blue  = '#83a598'  # Vimモード用
 
 [os]
 disabled = false
-style = "bold fg:color_gray"
-# アイコンの代わりにOS名を短縮表示
-format = "[$symbol]($style) "
+style = "bg:bg_dark fg:fg_main"
+format = "[ $symbol ]($style)"
 
 [os.symbols]
 Windows = "Win"
@@ -49,47 +49,37 @@ Redhat = "Rhl"
 
 [username]
 show_always = true
-style_user = "bold fg:color_orange"
-style_root = "bold fg:color_red"
-format = "[$user]($style) "
+style_user = "bg:bg_dark fg:fg_main"
+style_root = "bg:color_red fg:fg_main"
+format = "[ $user ]($style)"
 
 [directory]
-truncation_length = 5
-truncation_symbol = ".../"
-home_symbol = "~"
+truncation_length = 3
+style = "bg:bg_path fg:fg_dark bold"
+format = "[ $path ]($style)"
 read_only = " [RO]"
-style = "bold fg:color_aqua"
-format = "at [$path]($style)[$read_only]($read_only_style) "
+read_only_style = "bg:bg_path fg:color_red"
 
 [git_branch]
 symbol = "git:"
-style = "bold fg:color_purple"
-format = "| [$symbol$branch(:$remote_branch)]($style) "
+style = "bg:bg_git fg:fg_git bold"
+format = "[ $symbol$branch ]($style)"
 
 [git_status]
-style = "bold fg:color_red"
-conflicted = "="
-ahead = ">"
-behind = "<"
-diverged = "<>"
-up_to_date = "ok"
-untracked = "?"
-stashed = "$"
-modified = "!"
-renamed = ">>"
-deleted = "x"
-format = "([$all_status$ahead_behind]($style)) "
+style = "bg:bg_git fg:fg_git"
+up_to_date = ""
+format = "[($all_status$ahead_behind )]($style)"
 
 [fill]
 symbol = " "
 
 [hostname]
 ssh_only = false
-style = "bold fg:color_yellow"
-# セパレーターとしてパイプを使用
-format = "| [$hostname]($style) "
+style = "bg:bg_host fg:fg_dark bold"
+format = "[ $hostname ]($style)"
 
 [character]
-success_symbol = "[>>>](bold color_green)"
-error_symbol = "[>>>](bold color_red)"
-vimcmd_symbol = "[<<<](bold color_blue)"
+success_symbol = "[ >>> ](bold color_green)"
+error_symbol = "[ >>> ](bold color_red)"
+vimcmd_symbol = "[ <<< ](bold color_blue)"
+
