@@ -25,6 +25,7 @@ if [ ! -d ${HOME}.config ]; then
   mkdir -p ${HOME}/.config
 fi
 ln -sf ${DOTFILES_ZSH_PATH}/sheldon ${HOME}/.config/sheldon
+echo "make symbolic link '.config/sheldon' at ${DOTFILES_ZSH_PATH}/sheldon"
 
 ### fish
 #if [ -d ${FISH_CONFIG_PATH} ]; then
