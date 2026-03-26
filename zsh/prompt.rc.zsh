@@ -9,9 +9,9 @@ setopt prompt_subst
 
 # 一般ユーザ時
 # 通常のプロンプト
-tmp_prompt="%{${fg[cyan]}%}%n%# %{${reset_color}%}"
+tmp_prompt="%{${fg[white]}%}%n%# %{${reset_color}%}"
 # セカンダリのプロンプト (コマンドが２行以上のときに表示される)
-tmp_prompt2="%{${fg[cyan]}%}%_> %{${reset_color}%}"
+tmp_prompt2="%{${fg[white]}%}%_> %{${reset_color}%}"
 # 右側のプロンプト
 tmp_rprompt="%{${fg[green]}%}[%~]%{${reset_color}%}"
 # スペル訂正用のプロンプト
