@@ -187,12 +187,11 @@ unsetopt caseglob
 # Prompt
 # --------------------------------------------
 # Starship
-if ! type starship > /dev/null 2>&1; then
-  echo "Please install Starship."
+if type starship > /dev/null 2>&1; then
+  export STARSHIP_CONFIG="${HOME}/.dotfiles/zsh/starship.toml"
+  eval "$(starship init zsh)"
+else
+  # マニュアル (NerdFontが使えない環境で利用)
+  source "${HOME}/.dotfiles/zsh/prompt.rc.zsh"
 fi
-export STARSHIP_CONFIG="${HOME}/.dotfiles/zsh/starship.toml"
-eval "$(starship init zsh)"
-
-# マニュアル (NerdFontが使えない環境で利用)
-#source "${HOME}/.dotfiles/zsh/prompt.rc.zsh"
 
