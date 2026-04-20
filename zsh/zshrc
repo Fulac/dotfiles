@@ -38,7 +38,7 @@ alias ip="ip -color"
 alias -g @g='| grep'
 alias -g @f='| find'
 alias -g @l='| less'
-alias clab="containerlab"
+alias clab="sudo containerlab"
 
 # --------------------------------------------
 # PATH設定
